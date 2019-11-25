@@ -1,0 +1,10 @@
+[user]
+	name = Théo Larue
+	email = thlarue@live.fr
+[core]
+	editor = vim
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
