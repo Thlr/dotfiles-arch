@@ -54,7 +54,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " For stats on the code
-Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
+" Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
 
 " For R editing and execution
 Plug 'jalvesaq/Nvim-R' " for working in R

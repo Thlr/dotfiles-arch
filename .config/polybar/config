@@ -39,8 +39,12 @@ format-offset =
 [colors]
 ;background = #aa2c2c2e
 ;background = #2c2c2e
-background = #414142
-foreground = #9f9f9f
+;background = #414142
+background = #2d2d2d
+
+;foreground = #9f9f9f
+foreground = #e5e5e5
+
 alert = #d81b5f
 ;background2 = #2c2c2e
 background2 = ${colors.background}
@@ -93,10 +97,10 @@ monitor = ${env:MONITOR}
 ;monitor-fallback = HDMI1
 monitor-strict = false
 override-redirect = false
-bottom = false
+bottom = true
 fixed-center = true
 width = 100%
-height = 25
+height = 30
 ;offset-x = 1%
 ;offset-y = 1%
 
@@ -134,7 +138,8 @@ font-4 = "Font Awesome 5 Brands:pixelsize=8;1"
 ;arrange modules here!
 modules-left = i3
 modules-center = xwindow
-modules-right = arrow8 spotify arrow7 memory1 arrow6 cpu1 arrow5 pavolume arrow4 wireless-network wired-network arrow3 xbacklight arrow2 battery arrow1 date powermenu
+:modules-right = arrow8 spotify arrow7 memory1 arrow6 cpu1 arrow5 pavolume arrow4 wireless-network wired-network arrow3 xbacklight arrow2 battery arrow1 date powermenu
+modules-right = spotify memory1 cpu1 pavolume wireless-network wired-network battery xbacklight date powermenu
 
 separator =
 
@@ -230,7 +235,7 @@ fuzzy-match = false
 ;ws-icon-1 = 2;
 ;ws-icon-2 = 3;
 ;ws-icon-3 = 4;
-;ws-icon-3 = 4; 
+;ws-icon-3 = 4;
 ;ws-icon-4 = 5;
 ;ws-icon-5 = 6;
 ;ws-icon-6 = 7;
@@ -391,30 +396,42 @@ adapter = AC
 full-at = 99
 
 format-charging = <label-charging><ramp-capacity>
-format-charging-prefix = " "
-format-charging-foreground = ${colors.background2}
-format-charging-background = ${colors.shade1}
+format-charging-prefix = "  "
+;format-charging-foreground = ${colors.background2}
+;format-charging-background = ${colors.shade1}
+format-charging-foreground = ${colors.shade6}
+format-charging-background = ${colors.background}
 
+format-discharging-prefix = " "
 format-discharging = <label-discharging><ramp-capacity>
-format-discharging-foreground = ${colors.background2}
-format-discharging-background = ${colors.shade1}
+;format-discharging-foreground = ${colors.background2}
+;format-discharging-background = ${colors.shade1}
+format-discharging-foreground = ${colors.shade6}
+format-discharging-background = ${colors.background}
 
 format-full = <label-full>
-format-full-prefix = "   "
-format-full-prefix-foreground = ${colors.background2}
-format-full-foreground = ${colors.background2}
-format-full-background = ${colors.shade1}
+format-full-prefix = "    "
+;format-full-prefix-foreground = ${colors.background2}
+;format-full-foreground = ${colors.background2}
+;format-full-background = ${colors.shade1}
+format-full-prefix-foreground = ${colors.shade6}
+format-full-foreground = ${colors.shade6}
+format-full-background = ${colors.background}
 
-format-foreground = ${colors.background2}
-format-background = ${colors.shade1}
+;format-foreground = ${colors.background2}
+;format-background = ${colors.shade1}
+format-foreground = ${colors.shade6}
+format-background = ${colors.background}
 
 ramp-capacity-0 = " "
 ramp-capacity-1 = " "
 ramp-capacity-2 = " "
 ramp-capacity-3 = " "
 ramp-capacity-4 = " "
-ramp-capacity-foreground = ${colors.background2}
-ramp-capacity-background = ${colors.shade1}
+;ramp-capacity-foreground = ${colors.background2}
+;ramp-capacity-background = ${colors.shade1}
+ramp-capacity-foreground = ${colors.shade6}
+ramp-capacity-background = ${colors.background}
 
 ################################################################################
 
@@ -436,11 +453,15 @@ type = internal/cpu
 ; Seconds to sleep between updates
 ; Default: 1
 interval = 1
-format-foreground = ${colors.background2}
-format-background = ${colors.shade5}
+;format-foreground = ${colors.background2}
+;format-background = ${colors.shade5}
+format-foreground = ${colors.shade2}
+format-background = ${colors.background}
+
 ;   
-format-prefix = " "
-format-prefix-foreground = ${colors.background2}
+format-prefix = "  "
+;format-prefix-foreground = ${colors.background2}
+format-prefix-foreground = ${colors.shade2}
 
 ; Available tags:
 ;   <label> (default)
@@ -459,28 +480,28 @@ format-padding = 0
 label = %percentage%%
 ramp-coreload-0 = ▁
 ramp-coreload-0-font = 6
-ramp-coreload-0-foreground = ${colors.background2}
+ramp-coreload-0-foreground = ${colors.shade2}
 ramp-coreload-1 = ▂
 ramp-coreload-1-font = 3
-ramp-coreload-1-foreground = ${colors.background2}
+ramp-coreload-1-foreground = ${colors.shade2}
 ramp-coreload-2 = ▃
 ramp-coreload-2-font = 3
-ramp-coreload-2-foreground = ${colors.background2}
+ramp-coreload-2-foreground = ${colors.shade2}
 ramp-coreload-3 = ▄
 ramp-coreload-3-font = 3
-ramp-coreload-3-foreground = ${colors.background2}
+ramp-coreload-3-foreground = ${colors.shade2}
 ramp-coreload-4 = ▅
 ramp-coreload-4-font = 3
-ramp-coreload-4-foreground = ${colors.background2}
+ramp-coreload-4-foreground = ${colors.shade2}
 ramp-coreload-5 = ▆
 ramp-coreload-5-font = 3
-ramp-coreload-5-foreground = ${colors.background2}
+ramp-coreload-5-foreground = ${colors.shade2}
 ramp-coreload-6 = ▇
 ramp-coreload-6-font = 3
-ramp-coreload-6-foreground = ${colors.background2}
+ramp-coreload-6-foreground = ${colors.shade2}
 ramp-coreload-7 = █
 ramp-coreload-7-font = 3
-ramp-coreload-7-foreground = ${colors.background2}
+ramp-coreload-7-foreground = ${colors.shade2}
 
 ################################################################################
 
@@ -495,7 +516,7 @@ date = " %a %b %d, %Y"
 date-alt = " %a %b %d, %Y"
 time = %l:%M%p
 time-alt = %l:%M%p
-format-prefix = " "
+format-prefix = " | "
 format-prefix-foreground = ${colors.foreground}
 format-foreground = ${colors.foreground}
 format-background = ${colors.background2}
@@ -598,7 +619,7 @@ interval = 100
 ;label = %output%
 label = %output:10%
 
-format-foreground = ${<colors.foreground}
+format-foreground = ${colors.foreground}
 format-background = ${colors.background2}
 format-prefix = "  "
 format-prefix-foreground = #62FF00
@@ -629,9 +650,9 @@ bar-used-empty-foreground = #ffffff
 
 format = <label>
 format-prefix = " "
-format-prefix-foreground = ${colors.background2}
-format-foreground = ${colors.background2}
-format-background = ${colors.shade6}
+format-prefix-foreground = ${colors.shade1}
+format-foreground = ${colors.shade1}
+format-background = ${colors.background}
 
 ################################################################################
 
@@ -669,8 +690,8 @@ click-right = exec pavucontrol
 click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
 scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
 scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
-format-foreground = ${colors.background2}
-format-background = ${colors.shade4}
+format-foreground = ${colors.shade3}
+format-background = ${colors.background}
 
 ################################################################################
 
@@ -708,11 +729,12 @@ exec = ~/.config/polybar/scripts/spotify.sh
 interval = 1
 
 ;format = <label>
-format-foreground = ${colors.background2}
-format-background = ${colors.shade7}
+;format-foreground = ${colors.foreground}
+format-foreground = #1DB954
+format-background = ${colors.background}
 format-padding = 0
 format-prefix = " "
-format-prefix-foreground = ${colors.background2}
+format-prefix-foreground = #1DB954
 label = %output:0:150%
 
 ################################################################################
@@ -820,7 +842,7 @@ interval = 3.0
 label-connected =  %ifname%
 label-disconnected = %ifname% disconnected
 
-format-connected-foreground = ${colors.foreground}
+format-connected-foreground = ${colors.shade4
 format-connected-background = ${colors.background}
 format-connected-underline = #55aa55
 format-connected-prefix = " "
@@ -829,7 +851,7 @@ format-connected-prefix-background = ${colors.background}
 
 format-disconnected = <label-disconnected>
 format-disconnected-underline = ${colors.alert}
-label-disconnected-foreground = ${colors.foreground}
+label-disconnected-foreground = ${colors.shade4}
 
 ################################################################################
 
@@ -844,23 +866,23 @@ accumulate-stats = true
 
 format-connected = <label-connected>
 ;format-connected = <ramp-signal> <label-connected>
-format-connected-foreground = ${colors.background}
-format-connected-background = ${colors.shade3}
-format-connected-prefix = "  "
-format-connected-prefix-foreground = ${colors.background}
-format-connected-prefix-background = ${colors.shade3}
+format-connected-foreground = ${colors.shade4}
+format-connected-background = ${colors.background}
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.shade4}
+format-connected-prefix-background = ${colors.background}
 
 ;label-disconnected = %ifname% disconnected
 label-disconnected = %{A1:nm-connection-editor:}%ifname% disconnected%{A}
-label-disconnected-foreground = ${colors.background}
-label-disconnected-background = ${colors.shade3}
+label-disconnected-foreground = ${colors.shade4}
+label-disconnected-background = ${colors.background}
 
 format-disconnected = <label-disconnected>
-format-disconnected-foreground = ${colors.background}
-format-disconnected-background = ${colors.shade3}
-format-disconnected-prefix = "  "
-format-disconnected-prefix-foreground = ${colors.background}
-format-disconnected-prefix-background = ${colors.shade3}
+format-disconnected-foreground = ${colors.shade4}
+format-disconnected-background = ${colors.background}
+format-disconnected-prefix = " "
+format-disconnected-prefix-foreground = ${colors.shade4}
+format-disconnected-prefix-background = ${colors.background}
 
 ramp-signal-0 = ▁
 ramp-signal-1 = ▂
@@ -979,12 +1001,13 @@ format-background = ${colors.shade7}
 type = internal/xbacklight
 
 format = <label><ramp>
+format-prefix = " "
 enable-scroll = yes
-label =  %percentage:3:%%
-;label = %percentage:3:%%
+;label =  %percentage:3:%%
+label = %percentage:3:%%
 
-format-background = ${colors.shade2}
-format-foreground = ${colors.background2}
+format-background = ${colors.background}
+format-foreground = ${colors.shade5}
 
 ramp-0 = "🌕"
 ramp-1 = "🌔"
