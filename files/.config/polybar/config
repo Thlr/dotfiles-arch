@@ -37,51 +37,40 @@ format-margin =
 format-offset =
 
 [colors]
-;background = #aa2c2c2e
-;background = #2c2c2e
-;background = #414142
-background = #2d2d2d
-
-;foreground = #9f9f9f
-foreground = #e5e5e5
-
-alert = #d81b5f
-;background2 = #2c2c2e
+background = #f0000000
 background2 = ${colors.background}
+foreground = ${xrdb:foreground:#222}
+alert = #d81b5f
+shade1 = ${xrdb:color1:#222}
+shade2 = ${xrdb:color2:#222}
+shade3 = ${xrdb:color3:#222}
+shade4 = ${xrdb:color4:#222}
+shade5 = ${xrdb:color5:#222}
+shade6 = ${xrdb:color6:#222}
+shade7 = ${xrdb:color7:#222}
+shade8 = ${xrdb:color8:#222}
+shade9 = ${xrdb:color9:#222}
+shade10 = ${xrdb:color10:#222}
+shade11 = ${xrdb:color11:#222}
+shade12 = ${xrdb:color12:#222}
 
 ; Qyu theme
-shade1 = #00ACC1
-shade2 = #FF5C79
-shade3 = #42A5F5
-shade4 = #F57900
-shade5 = #118A71
-shade6 = #FF5252
-shade7 = #16A085
-shade8 = #16A085
-shade9 = #16A085
-shade10 = #16A085
-shade11 = #16A085
-shade12 = #16A085
-
-; amber
-;shade1 = #FF6F00
-;shade2 = #FF8F00
-;shade3 = #FFA000
-;shade4 = #FFB300
-;shade5 = #FFC107
-;shade6 = #FFCA28
-;shade7 = #FFD54F
-;shade8 = #FFE082
-
-; deep orange
-;shade1 = #BF360C
-;shade2 = #D84315
-;shade3 = #E64A19
-;shade4 = #F4511E
-;shade5 = #FF5722
-;shade6 = #FF7043
-;shade7 = #FF8A65
-;shade8 = #FFAB91
+;background = #2d2d2d
+;background2 = ${colors.background}
+;foreground = #e5e5e5
+;alert = #d81b5f
+;shade1 = #00ACC1
+;shade2 = #FF5C79
+;shade3 = #42A5F5
+;shade4 = #F57900
+;shade5 = #118A71
+;shade6 = #FF5252
+;shade7 = #16A085
+;shade8 = #16A085
+;shade9 = #16A085
+;shade10 = #16A085
+;shade11 = #16A085
+;shade12 = #16A085
 
 ; =======================
 
