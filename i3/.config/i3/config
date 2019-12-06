@@ -62,7 +62,7 @@ bindsym $mod+F5 exec "mons -n right"
 bindsym $mod+F6 exec "bash ~/.config/polybar/launch.sh"
 bindsym Print exec --no-startup-id shutter
 bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b
+bindsym $mod+Ctrl+t exec --no-startup-id compton -b --config ~/.config/compton/compton.conf
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -276,7 +276,7 @@ for_window [class="Org.gnome.Nautilus"] floating enable
 
 # graphics
 exec --no-startup-id wpg -m
-exec --no-startup-id compton -b
+exec --no-startup-id compton -b --config ~/.config/compton/compton.conf
 exec --no-startup-id bash ~/.config/polybar/launch.sh
 
 # basics
