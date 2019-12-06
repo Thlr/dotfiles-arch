@@ -273,6 +273,12 @@ for_window [class="Variety"] floating enable
 for_window [class="Org.gnome.Nautilus"] floating enable
 
 # Autostart applications
+
+# graphics
+exec --no-startup-id compton -b
+exec --no-startup-id wpg -m
+exec --no-startup-id bash ~/.config/polybar/launch.sh
+
 # basics
 exec --no-startup-id pa-applet # volume
 exec --no-startup-id $terminal
@@ -281,12 +287,6 @@ exec --no-startup-id nm-applet
 exec --no-startup-id udiskie
 exec --no-startup-id blueman-applet
 
-# graphics
-exec --no-startup-id compton -b
-exec --no-startup-id bash ~/.config/polybar/launch.sh
-#exec --no-startup-id feh --bg-scale "~/Pictures/wallpapers/mountain-yellow.jpg"
-#exec --no-startup-id nitrogen --set-scaled ~/Pictures/wallpaper.jpg
-exec --no-startup-id wpg -m
 
 # others
 exec --no-startup-id megasync
