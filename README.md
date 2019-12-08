@@ -1,7 +1,8 @@
-Welcome to my dotfiles repo
+manjaro + i3-gaps
+polybar
+terminal : kitty
+kawase blur thanks to compton-tryone-git
+dmenu : rofi
 
-Configuration : Manjaro with i3-gaps
+polybar + vim + kitty + rofi themes automatically generated with wpgtk based on the wallpaper
 
-list of installed packages in packages.list
-```pacman -Qqe | grep -Fvx "$(pacman -Qqm)" > packages.list``` to save the current packages configuration
-```xargs pacman -S --needed --noconfirm < packages.list``` to install all packages.
