@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/theo/.config/wpg/wallpapers/foggy-forest.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#090908",
+        "foreground": "#ababaa",
+        "cursor": "#ababaa"
+    },
+    "colors": {
+        "color0": "#090908",
+        "color1": "#757674",
+        "color2": "#848d94",
+        "color3": "#5e5f58",
+        "color4": "#8c8b8a",
+        "color5": "#838c87",
+        "color6": "#535c55",
+        "color7": "#ababaa",
+        "color8": "#585855",
+        "color9": "#757674",
+        "color10": "#848d94",
+        "color11": "#5e5f58",
+        "color12": "#8c8b8a",
+        "color13": "#838c87",
+        "color14": "#535c55",
+        "color15": "#ababaa"
+    }
+}

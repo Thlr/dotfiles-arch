@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/theo/.config/wpg/wallpapers/horshead.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#171516",
+        "foreground": "#c5c4c4",
+        "cursor": "#c5c4c4"
+    },
+    "colors": {
+        "color0": "#171516",
+        "color1": "#452664",
+        "color2": "#6a243d",
+        "color3": "#853472",
+        "color4": "#b9468c",
+        "color5": "#c450b2",
+        "color6": "#d55a9f",
+        "color7": "#c5c4c4",
+        "color8": "#514f50",
+        "color9": "#452664",
+        "color10": "#6a243d",
+        "color11": "#853472",
+        "color12": "#b9468c",
+        "color13": "#c450b2",
+        "color14": "#d55a9f",
+        "color15": "#c5c4c4"
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/theo/.config/wpg/wallpapers/clouds_bright.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#221b12",
+        "foreground": "#c7c6c3",
+        "cursor": "#c7c6c3"
+    },
+    "colors": {
+        "color0": "#221b12",
+        "color1": "#ac885c",
+        "color2": "#c69756",
+        "color3": "#aca380",
+        "color4": "#81a997",
+        "color5": "#51a5a7",
+        "color6": "#1596a9",
+        "color7": "#c7c6c3",
+        "color8": "#59544d",
+        "color9": "#ac885c",
+        "color10": "#c69756",
+        "color11": "#aca380",
+        "color12": "#81a997",
+        "color13": "#51a5a7",
+        "color14": "#1596a9",
+        "color15": "#c7c6c3"
+    }
+}

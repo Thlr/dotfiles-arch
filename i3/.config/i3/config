@@ -60,6 +60,8 @@ bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec nautilus
 bindsym $mod+F5 exec "mons -n right"
 bindsym $mod+F6 exec "bash ~/.config/polybar/launch.sh"
+bindsym $mod+F7 exec "bash ~/.config/i3/scripts/dual-screen.sh"
+bindsym $mod+F8 exec "wpg -m"
 bindsym Print exec --no-startup-id shutter
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b --config ~/.config/compton/compton.conf

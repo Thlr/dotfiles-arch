@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/theo/.config/wpg/wallpapers/arctic.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#211d1d",
+        "foreground": "#c7c6c6",
+        "cursor": "#c7c6c6"
+    },
+    "colors": {
+        "color0": "#211d1d",
+        "color1": "#aa9595",
+        "color2": "#7583aa",
+        "color3": "#808baa",
+        "color4": "#8e92aa",
+        "color5": "#a19da9",
+        "color6": "#b36b6d",
+        "color7": "#c7c6c6",
+        "color8": "#585555",
+        "color9": "#aa9595",
+        "color10": "#7583aa",
+        "color11": "#808baa",
+        "color12": "#8e92aa",
+        "color13": "#a19da9",
+        "color14": "#b36b6d",
+        "color15": "#c7c6c6"
+    }
+}
