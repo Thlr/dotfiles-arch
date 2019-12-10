@@ -277,7 +277,7 @@ for_window [class="Org.gnome.Nautilus"] floating enable
 # Autostart applications
 
 # graphics
-exec --no-startup-id wpg -m
+exec --no-startup-id bash ~/.config/wpg/wp_init.sh
 exec --no-startup-id compton -b --config ~/.config/compton/compton.conf
 exec --no-startup-id bash ~/.config/polybar/launch.sh
 
