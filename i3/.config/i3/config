@@ -276,20 +276,17 @@ for_window [class="Org.gnome.Nautilus"] floating enable
 
 # Autostart applications
 
-# graphics
 exec --no-startup-id bash ~/.config/wpg/wp_init.sh
 exec --no-startup-id compton -b --config ~/.config/compton/compton.conf
-exec --no-startup-id bash ~/.config/polybar/launch.sh
 
-# basics
-exec --no-startup-id pa-applet # volume
+exec --no-startup-id pa-applet
 exec --no-startup-id $terminal
 exec --no-startup-id xss-lock --transfer-sleep-lock -- blurlock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id udiskie
 exec --no-startup-id blueman-applet
-
-# others
 exec --no-startup-id megasync
 exec --no-startup-id firefox
 exec --no-startup-id franz
+
+exec --no-startup-id bash ~/.config/polybar/launch.sh
