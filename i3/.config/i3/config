@@ -32,9 +32,13 @@ set $terminal kitty
 
 # settings for i3-gaps:
 
+########
+# GAPS #
+########
+#
 # Set inner/outer gaps
 gaps inner 14
-gaps outer -2
+gaps outer 0
 
 # Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps on
@@ -42,6 +46,11 @@ smart_gaps on
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
+
+workspace $ws2 gaps inner 0
+workspace $ws2 gaps outer 0
+workspace $ws4 gaps inner 0
+workspace $ws4 gaps outer 0
 
 ############
 # BINDINGS #
@@ -92,7 +101,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym $mod+a kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id rofi -show drun
 
 # change focus
 bindsym $mod+h focus left
@@ -196,12 +206,10 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10 : "
 
-workspace $ws2 gaps inner 0
-workspace $ws2 gaps outer 0
 
 # Workspace assigning
 assign [class="firefox"] $ws2
-assign [class="Franz"] $ws4
+assign [class="Chromium"] $ws4
 for_window [class="Spotify"] move to workspace $ws10
 
 # guake-like shortcut
@@ -280,13 +288,16 @@ exec --no-startup-id bash ~/.config/wpg/wp_init.sh
 exec --no-startup-id compton -b --config ~/.config/compton/compton.conf
 
 exec --no-startup-id pa-applet
-exec --no-startup-id $terminal
 exec --no-startup-id xss-lock --transfer-sleep-lock -- blurlock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id udiskie
 exec --no-startup-id blueman-applet
 exec --no-startup-id megasync
 exec --no-startup-id firefox
-exec --no-startup-id franz
+exec --no-startup-id chromium
+exec --no-startup-id spotify
+#exec --no-startup-id $terminal
+exec --no-startup-id i3-msg 'workspace $ws3; exec kitty -e ranger'
+exec --no-startup-id i3-msg 'workspace $ws1; exec $terminal'
 
 exec --no-startup-id bash ~/.config/polybar/launch.sh

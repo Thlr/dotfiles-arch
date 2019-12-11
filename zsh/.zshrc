@@ -42,6 +42,7 @@ else
 fi
 unset __conda_setup
 # <<< conda init <<<
+conda deactivate
 
 # Android sdk related exports
 export ANDROID_HOME=$HOME"/Android/Sdk"
@@ -60,6 +61,9 @@ TEXLIVE_HOME="/usr/local/texlive/2019"
 export MANPATH=$MANPATH:$TEXLIVE_HOME"/texmf-dist/doc/man"
 export INFOPATH=$INFOPATH:$TEXLIVE_HOME"/texmf-dist/doc/info"
 export PATH="/usr/local/texlive/2019/bin/x86_64-linux":$PATH
+
+# Rider IDE
+export PATH="$HOME/.local/share/JetBrains/Toolbox/apps/JetBrains Rider-2019.3/bin/":$PATH
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
