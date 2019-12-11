@@ -55,7 +55,7 @@ Plug 'scrooloose/nerdtree' " browse files tree
 " Plug 'junegunn/fzf' " fuzzy files finding
 
 " snippets allow to easily 'fill' common patterns
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " For stats on the code
@@ -97,9 +97,9 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 " ultisnips default bindings compete with completor's tab
 " so we need to remap them
-let g:UltiSnipsExpandTrigger="<c-t>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"let g:UltiSnipsExpandTrigger="<c-t>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " color cheme
 colorscheme wpgtkAlt
