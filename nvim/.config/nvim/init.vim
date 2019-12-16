@@ -85,6 +85,9 @@ Plug 'vim-scripts/clips.vim'
 Plug 'vim-latex/vim-latex'
 Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'} " Live preview of LaTeX PDF output
 
+"GLSL syntax highlighting
+Plug 'tikhomirov/vim-glsl'
+
 call plug#end()
 
 filetype plugin indent on

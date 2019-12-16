@@ -281,6 +281,7 @@ for_window [class="Gnome-tweaks"] floating enable
 for_window [class="Matplotlib"] floating enable
 for_window [class="Variety"] floating enable
 for_window [class="Org.gnome.Nautilus"] floating enable
+for_window [class="myViewer"] floating enable
 
 # Autostart applications
 
