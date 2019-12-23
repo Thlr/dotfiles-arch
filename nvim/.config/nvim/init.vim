@@ -88,6 +88,9 @@ Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'} " Live preview of LaTeX PDF 
 "GLSL syntax highlighting
 Plug 'tikhomirov/vim-glsl'
 
+" autocompletion
+Plug 'zxqfl/tabnine-vim'
+
 call plug#end()
 
 filetype plugin indent on
