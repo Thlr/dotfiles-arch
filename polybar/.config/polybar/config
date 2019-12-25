@@ -991,19 +991,13 @@ format-background = ${colors.shade7}
 [module/xbacklight]
 type = internal/xbacklight
 
-format = <label><ramp>
-format-prefix = " "
+format = <label>
 enable-scroll = yes
 ;label =  %percentage:3:%%
-label = %percentage:3:%%
+label = %percentage:3:%% 
 
 format-background = ${colors.background}
 format-foreground = ${colors.shade5}
 
-ramp-0 = "🌕"
-ramp-1 = "🌔"
-ramp-2 = "🌓"
-ramp-3 = "🌒"
-ramp-4 = "🌑"
 ramp-background = ${colors.shade2}
 ramp-foreground = ${colors.background2}
