@@ -10,4 +10,4 @@ dmenu : rofi
 
 polybar + vim + kitty + rofi themes automatically generated with wpgtk based on the wallpaper
 
-notifications with dunst
+notifications with dunstify
