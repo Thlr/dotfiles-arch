@@ -1,4 +1,4 @@
-###Software used
+### Software used
 manjaro + i3-gaps
 
 polybar
@@ -13,7 +13,7 @@ polybar + vim + kitty + rofi themes automatically generated with wpgtk based on 
 
 notifications with dunstify
 
-###Other config
+### Other config
 Touchpad configuration :
 
 ```
@@ -30,7 +30,7 @@ EndSection
 ```
 
 
-###Troubleshooting
+### Troubleshooting
 
 * enable native chrome notifications (with chromium 78+) :
 https://support.google.com/chrome/thread/18102285?hl=en
