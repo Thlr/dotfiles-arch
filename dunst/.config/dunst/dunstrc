@@ -33,7 +33,7 @@ indicate_hidden = yes
 
 # Alignment of message text.
 # Possible values are "left", "center" and "right".
-alignment = center
+alignment = left
 
 # The frequency with wich text that is longer than the notification
 # window allows bounces back and forth.
@@ -153,7 +153,7 @@ icon_position = left
 max_icon_size = 50
 
 # Paths to default icons.
-icon_path = /usr/share/icons/Paper/16x16/mimetypes/:/usr/share/icons/Paper/48x48/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/48x48/notifications/:/usr/share/icons/Paper/48x48/emblems/
+icon_path = /usr/share/icons/Papirus/16x16/mimetypes/:/usr/share/icons/Papirus/48x48/status/:/usr/share/icons/Papirus/16x16/devices/:/usr/share/icons/Papirus/48x48/notifications/:/usr/share/icons/Papirus/48x48/emblems/:/usr/share/icons/Papirus/48x48/apps/
 
 frame_width = 1
 frame_color = "#8EC07C"
@@ -178,20 +178,20 @@ context = ctrl+shift+period
 # Otherwise the "#" and following would be interpreted as a comment.
 frame_color = "#3B7C87"
 foreground = "#3B7C87"
-background = "#191311"
-#background = "#2B313C"
+#background = "#191311"
+background = "#2B313C"
 timeout = 4
 
 [urgency_normal]
 frame_color = "#5B8234"
 foreground = "#5B8234"
-background = "#191311"
-#background = "#2B313C"
+#background = "#191311"
+background = "#2B313C"
 timeout = 6
 
 [urgency_critical]
 frame_color = "#B7472A"
 foreground = "#B7472A"
-background = "#191311"
-#background = "#2B313C"
+#background = "#191311"
+background = "#2B313C"
 timeout = 8

@@ -287,6 +287,8 @@ for_window [class="Variety"] floating enable
 for_window [class="Org.gnome.Nautilus"] floating enable
 for_window [class="myViewer"] floating enable
 for_window [class="Gnome-calculator"] floating enable
+for_window [class="Eog"] floating enable
+
 
 # Autostart applications
 
