@@ -12,6 +12,7 @@ dmenu : rofi
 polybar + vim + kitty + rofi themes automatically generated with wpgtk based on the wallpaper
 
 notifications with dunstify
+Additionnal icon pack required : https://github.com/snwh/faba-icon-theme
 
 ### Other config
 Touchpad configuration :
