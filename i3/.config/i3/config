@@ -1,6 +1,4 @@
 ###########
-# GENERAL #
-###########
 
 set $mod Mod4
 
@@ -288,11 +286,11 @@ for_window [class="Org.gnome.Nautilus"] floating enable
 for_window [class="myViewer"] floating enable
 for_window [class="Gnome-calculator"] floating enable
 for_window [class="Eog"] floating enable
+for_window [class="Wpg"] floating enable
+for_window [class="Transmision-gtk"] floating enable
 
 
 # Autostart applications
-
-exec --no-startup-id bash ~/.config/polybar/launch.sh
 exec --no-startup-id bash ~/.config/wpg/wp_init.sh
 exec --no-startup-id compton -b --config ~/.config/compton/compton.conf
 
@@ -304,8 +302,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id megasync
 exec --no-startup-id firefox
 exec --no-startup-id chromium
-exec --no-startup-id spotify
-#exec --no-startup-id $terminal
 exec --no-startup-id i3-msg 'workspace $ws3; exec kitty -e ranger'
 exec --no-startup-id i3-msg 'workspace $ws1; exec $terminal'
 
+exec --no-startup-id bash ~/.config/polybar/launch.sh

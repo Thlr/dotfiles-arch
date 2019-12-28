@@ -37,49 +37,15 @@ Plug 'morhetz/gruvbox' " very nice and soft color theme
 Plug 'ryanoasis/vim-devicons' " various symbols (linux, rust, python, ...)
 Plug 'deviantfero/wpgtk.vim' " Automatic theme based on wallpaper
 
-" essential plugins
-" see for example https://github.com/autozimu/LanguageClient-neovim/issues/35#issuecomment-288731665
-Plug 'maralla/completor.vim' " auto-complete
-Plug 'autozimu/LanguageClient-neovim', {
-            \ 'branch': 'next',
-            \ 'do': 'bash install.sh',
-            \ } " as of july 2018 this branch is needed for vim8
-
-" rust
-Plug 'rust-lang/rust.vim' " syntax highlighting
-Plug 'mattn/webapi-vim' " used for rust playpen
 
 " not essential
 Plug 'tpope/vim-fugitive' " git
 Plug 'scrooloose/nerdtree' " browse files tree
 " Plug 'junegunn/fzf' " fuzzy files finding
 
-" snippets allow to easily 'fill' common patterns
-" Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 
 " For stats on the code
-" Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
-
-" For R editing and execution
-Plug 'jalvesaq/Nvim-R' " for working in R
-Plug 'vim-pandoc/vim-pandoc' " required for vim-rmarkdown
-Plug 'vim-pandoc/vim-pandoc-syntax' " required for vim-rmarkdown
-Plug 'vim-pandoc/vim-rmarkdown' "markdown support for vim
-Plug 'iamcco/markdown-preview.vim' " markdown live preview on brower
-function! BuildComposer(info)
-    if a:info.status != 'unchanged' || a:info.force
-        if has('nvim')
-            !cargo build --release
-        else
-            !cargo build --release --no-default-features --features json-rpc
-        endif
-    endif
-endfunction
-Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
-
-" CLIPS syntax hilighting
-Plug 'vim-scripts/clips.vim'
+Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
 
 " LaTeX editing
 Plug 'vim-latex/vim-latex'
@@ -94,18 +60,6 @@ Plug 'zxqfl/tabnine-vim'
 call plug#end()
 
 filetype plugin indent on
-
-" configure maralla/completor to use tab
-" other configurations are possible (see website)
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
-
-" ultisnips default bindings compete with completor's tab
-" so we need to remap them
-"let g:UltiSnipsExpandTrigger="<c-t>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " color cheme
 colorscheme wpgtkAlt
@@ -148,25 +102,8 @@ nnoremap <space> za
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+\%#\@<!$/
 
-" some more rust
-let g:LanguageClient_loadSettings = 1 " this enables you to have per-projects languageserver settings in .vim/settings.json
-let g:rustfmt_autosave = 1
-let g:rust_conceal = 1
-set hidden
-au BufEnter,BufNewFile,BufRead *.rs syntax match rustEquality "==\ze[^>]" conceal cchar=â‰Ÿ
-au BufEnter,BufNewFile,BufRead *.rs syntax match rustInequality "!=\ze[^>]" conceal cchar=â‰ 
-
 " let's autoindent c files
 au BufWrite *.c call LanguageClient#textDocument_formatting()
-
-" run language server for python, rust and c
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_serverCommands = {
-            \ 'python': ['pyls'],
-            \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-            \ 'javascript': ['javascript-typescript-stdio'],
-            \ 'go': ['go-langserver'],
-            \ 'c' : ['clangd'] }
 
 " NERDTree config
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
@@ -199,19 +136,6 @@ nnoremap <C-H> <C-W><C-H>
 " Disable the bell for intellij
 set visualbell
 set noerrorbells
-
-" R Editing
-" remapping the basic :: send line
-nmap , <Plug>RDSendLine
-" remapping selection :: send multiple lines
-vmap , <Plug>RDSendSelection
-" remapping selection :: send multiple lines + echo lines
-vmap ,e <Plug>RESendSelection
-" set to 1, the MarkdownPreview command can be use for all files,
-" by default it just can be use in markdown file
-" default: 0
-let g:mkdp_command_for_global = 1
-let g:markdown_composer_autostart = 0
 
 " code stats api key
 let g:codestats_api_key = "SFMyNTY.VkdobGIyeHkjI016WTROZz09.G5HVXCuZwY3G0lw-AHTmHOhLt6kylmRgGvLOONWA7Xo"
