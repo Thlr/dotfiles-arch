@@ -169,3 +169,6 @@ augroup collumnLimit
                 \ let w:m1=matchadd('CollumnLimit', pattern, -1)
 augroup END
 hi Normal guibg=NONE ctermbg=NONE
+
+" clipboard configuration for arch
+:set clipboard=unnamedplus
