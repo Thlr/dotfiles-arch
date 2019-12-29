@@ -62,7 +62,8 @@ call plug#end()
 filetype plugin indent on
 
 " color cheme
-colorscheme wpgtkAlt
+" colorscheme wpgtkAlt
+colorscheme gruvbox
 au VimEnter * exec 'AirlineTheme wpgtk'
 
 " airline :
