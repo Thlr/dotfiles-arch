@@ -42,10 +42,7 @@ Plug 'deviantfero/wpgtk.vim' " Automatic theme based on wallpaper
 Plug 'tpope/vim-fugitive' " git
 Plug 'scrooloose/nerdtree' " browse files tree
 " Plug 'junegunn/fzf' " fuzzy files finding
-
-
-" For stats on the code
-Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
+Plug 'https://gitlab.com/code-stats/code-stats-vim.git' " For stats on the code
 
 " LaTeX editing
 Plug 'vim-latex/vim-latex'
@@ -54,8 +51,9 @@ Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'} " Live preview of LaTeX PDF 
 "GLSL syntax highlighting
 Plug 'tikhomirov/vim-glsl'
 
-" autocompletion
+" autocompletion and snippets
 Plug 'zxqfl/tabnine-vim'
+Plug 'SirVer/ultisnips'
 
 call plug#end()
 
@@ -171,5 +169,12 @@ augroup collumnLimit
 augroup END
 hi Normal guibg=NONE ctermbg=NONE
 
-" clipboard configuration for arch
-:set clipboard=unnamedplus
+" YouCompleteMe and UltiSnips compatibility, with the helper of supertab
+" (via http://stackoverflow.com/a/22253548/1626737)
+let g:SuperTabDefaultCompletionType    = '<C-n>'
+let g:SuperTabCrMapping                = 0
+let g:UltiSnipsExpandTrigger           = '<tab>'
+let g:UltiSnipsJumpForwardTrigger      = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
+let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
