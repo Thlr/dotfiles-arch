@@ -200,7 +200,8 @@ bindsym $mod+o exec --no-startup-id blurlock
 set $ws1 "1 : "
 set $ws2 "2 : "
 set $ws3 "3 : "
-set $ws4 "4 : "
+# set $ws4 "4 : "
+set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -211,7 +212,6 @@ set $ws10 "10 : "
 
 # Workspace assigning
 assign [class="firefox"] $ws2
-assign [class="Chromium"] $ws4
 for_window [class="Spotify"] move to workspace $ws10
 
 # guake-like shortcut
@@ -301,7 +301,6 @@ exec --no-startup-id udiskie
 exec --no-startup-id blueman-applet
 exec --no-startup-id megasync
 exec --no-startup-id firefox
-exec --no-startup-id chromium
 exec --no-startup-id i3-msg 'workspace $ws3; exec kitty -e ranger'
 exec --no-startup-id i3-msg 'workspace $ws1; exec $terminal'
 
