@@ -52,9 +52,9 @@ Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'} " Live preview of LaTeX PDF 
 Plug 'tikhomirov/vim-glsl'
 
 " autocompletion and snippets
-Plug 'zxqfl/tabnine-vim'
-" Plug 'SirVer/ultisnips'
+" Plug 'zxqfl/tabnine-vim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ycm-core/YouCompleteMe'
 
 call plug#end()
 
@@ -63,7 +63,8 @@ filetype plugin indent on
 " color cheme
 " colorscheme wpgtkAlt
 colorscheme gruvbox
-au VimEnter * exec 'AirlineTheme wpgtk'
+" au VimEnter * exec 'AirlineTheme wpgtk'
+au VimEnter * exec 'AirlineTheme luna'
 
 " airline :
 " for terminology you will need either to export TERM='xterm-256color'

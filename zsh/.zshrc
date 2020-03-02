@@ -67,3 +67,7 @@ export PATH="$HOME/.local/share/JetBrains/Toolbox/apps/JetBrains Rider-2019.3/bi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# kubectl and minikube autocompletion
+source <(kubectl completion zsh)
+source <(minikube completion zsh)
