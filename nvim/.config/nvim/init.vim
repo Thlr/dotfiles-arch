@@ -37,8 +37,7 @@ Plug 'morhetz/gruvbox' " very nice and soft color theme
 Plug 'ryanoasis/vim-devicons' " various symbols (linux, rust, python, ...)
 Plug 'deviantfero/wpgtk.vim' " Automatic theme based on wallpaper
 
-
-" not essential
+" Quality of life plugins
 Plug 'tpope/vim-fugitive' " git
 Plug 'scrooloose/nerdtree' " browse files tree
 " Plug 'junegunn/fzf' " fuzzy files finding
@@ -55,6 +54,9 @@ Plug 'tikhomirov/vim-glsl'
 " Plug 'zxqfl/tabnine-vim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ycm-core/YouCompleteMe'
+
+" Nix related plugins
+Plug 'LnL7/vim-nix'
 
 call plug#end()
 
