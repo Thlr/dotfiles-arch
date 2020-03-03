@@ -71,3 +71,6 @@ export PATH="$HOME/.local/share/JetBrains/Toolbox/apps/JetBrains Rider-2019.3/bi
 # kubectl and minikube autocompletion
 source <(kubectl completion zsh)
 source <(minikube completion zsh)
+
+# nix related packages
+source ~/.nix-profile/etc/profile.d/nix.sh
