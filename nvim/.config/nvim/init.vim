@@ -67,6 +67,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
+" Go programming
+Plug 'fatih/vim-go'
+
 call plug#end()
 
 filetype plugin indent on
@@ -194,3 +197,9 @@ vmap ,e <Plug>RESendSelection
 " Markdown preview
 let g:mkdp_browser = 'firefox'
 nmap <C-p> <Plug>MarkdownPreviewToggle
+
+" Go editing
+" Run goimports along gofmt on each save
+let g:go_fmt_command = "goimports"
+" Automatically get signature/type info for object under cursor
+let g:go_auto_type_info =             "1
