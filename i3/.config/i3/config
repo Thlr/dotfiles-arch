@@ -197,8 +197,8 @@ bindsym $mod+o exec --no-startup-id blurlock
 ##############
 
 # Define names for default workspaces for which we configure key bindings later on.
-set $ws1 "1 : "
-set $ws2 "2 : "
+set $ws1 "1 : "
+set $ws2 "2 : "
 set $ws3 "3 : "
 # set $ws4 "4 : "
 set $ws4 "4"
@@ -211,7 +211,7 @@ set $ws10 "10 : "
 
 
 # Workspace assigning
-assign [class="firefox"] $ws2
+assign [class="firefox"] $ws1
 for_window [class="Spotify"] move to workspace $ws10
 
 # guake-like shortcut
@@ -288,6 +288,7 @@ for_window [class="Gnome-calculator"] floating enable
 for_window [class="Eog"] floating enable
 for_window [class="Wpg"] floating enable
 for_window [class="Transmision-gtk"] floating enable
+for_window [class="R_x11"] floating enable
 
 
 # Autostart applications
@@ -302,6 +303,6 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id megasync
 exec --no-startup-id firefox
 exec --no-startup-id i3-msg 'workspace $ws3; exec kitty -e ranger'
-exec --no-startup-id i3-msg 'workspace $ws1; exec $terminal'
+exec --no-startup-id i3-msg 'workspace $ws2; exec $terminal'
 
 exec --no-startup-id bash ~/.config/polybar/launch.sh

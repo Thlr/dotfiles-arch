@@ -35,13 +35,12 @@ Plug 'vim-airline/vim-airline' " status bar (needs special fonts)
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox' " very nice and soft color theme
 Plug 'ryanoasis/vim-devicons' " various symbols (linux, rust, python, ...)
-Plug 'deviantfero/wpgtk.vim' " Automatic theme based on wallpaper
+" Plug 'deviantfero/wpgtk.vim' " Automatic theme based on wallpaper
 
 " Quality of life plugins
-Plug 'tpope/vim-fugitive' " git
 Plug 'scrooloose/nerdtree' " browse files tree
 " Plug 'junegunn/fzf' " fuzzy files finding
-Plug 'https://gitlab.com/code-stats/code-stats-vim.git' " For stats on the code
+" Plug 'https://gitlab.com/code-stats/code-stats-vim.git' " For stats on the code
 
 " LaTeX editing
 Plug 'vim-latex/vim-latex'
@@ -58,6 +57,16 @@ Plug 'ycm-core/YouCompleteMe'
 " Nix related plugins
 Plug 'LnL7/vim-nix'
 
+" R editing
+Plug 'jalvesaq/Nvim-R'
+
+" Markdown tools
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+
+" Git integration
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 
 filetype plugin indent on
@@ -66,7 +75,7 @@ filetype plugin indent on
 " colorscheme wpgtkAlt
 colorscheme gruvbox
 " au VimEnter * exec 'AirlineTheme wpgtk'
-au VimEnter * exec 'AirlineTheme luna'
+" au VimEnter * exec 'AirlineTheme luna'
 
 " airline :
 " for terminology you will need either to export TERM='xterm-256color'
@@ -140,8 +149,9 @@ nnoremap <C-H> <C-W><C-H>
 set visualbell
 set noerrorbells
 
-" code stats api key
+" Code stats
 let g:codestats_api_key = "SFMyNTY.VkdobGIyeHkjI016WTROZz09.G5HVXCuZwY3G0lw-AHTmHOhLt6kylmRgGvLOONWA7Xo"
+let g:airline_section_x = airline#section#create_right(['tagbar', 'filetype', '%{CodeStatsXp()}'])
 
 " Jenkinsfile syntax highlighting
 au BufNewFile,BufRead Jenkinsfile setf groovy
@@ -172,3 +182,15 @@ augroup collumnLimit
                 \ let w:m1=matchadd('CollumnLimit', pattern, -1)
 augroup END
 hi Normal guibg=NONE ctermbg=NONE
+
+" Nvim-R
+" remapping the basic :: send line
+nmap , <Plug>RDSendLine
+" remapping selection :: send multiple lines
+vmap , <Plug>RDSendSelection
+" remapping selection :: send multiple lines + echo lines
+vmap ,e <Plug>RESendSelection
+
+" Markdown preview
+let g:mkdp_browser = 'firefox'
+nmap <C-p> <Plug>MarkdownPreviewToggle
