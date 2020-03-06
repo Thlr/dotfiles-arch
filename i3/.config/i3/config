@@ -35,7 +35,7 @@ set $terminal kitty
 ########
 #
 # Set inner/outer gaps
-gaps inner 20
+gaps inner 13
 gaps outer 0
 
 # Smart gaps (gaps used if only more than one container on the workspace)
@@ -45,10 +45,8 @@ smart_gaps on
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 
-workspace $ws2 gaps inner 0
-workspace $ws2 gaps outer 0
-workspace $ws4 gaps inner 0
-workspace $ws4 gaps outer 0
+workspace $ws1 gaps inner 0
+workspace $ws1 gaps outer 0
 
 ############
 # BINDINGS #

@@ -205,9 +205,7 @@ let g:gitgutter_sign_modified = ''
 let g:gitgutter_sign_removed = ''
 let g:gitgutter_sign_removed_first_line = ''
 let g:gitgutter_sign_modified_removed = ''
-let g:gitgutter_override_sign_column_highlight = 1
-highlight SignColumn guibg=dark
-highlight SignColumn ctermbg=black
+" let g:gitgutter_override_sign_column_highlight = 1
 set updatetime=250
 " Jump between hunks
 nmap <Leader>gn <Plug>(GitGutterNextHunk)
