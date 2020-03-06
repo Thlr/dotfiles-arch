@@ -18,7 +18,6 @@
 "" after that copy this file as your $HOME/.config/nvim/init.vim (or ~/.vimrc for classic vim) and execute :PlugInstall
 
 set nocompatible
-filetype off
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -153,19 +152,8 @@ let g:codestats_api_key = "SFMyNTY.VkdobGIyeHkjI016WTROZz09.G5HVXCuZwY3G0lw-AHTm
 " Jenkinsfile syntax highlighting
 au BufNewFile,BufRead Jenkinsfile setf groovy
 
-" yml files indent
-autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
-
-" Latex live preview conf
-autocmd FileType tex setl updatetime=1000
-let g:livepreview_engine = 'pdflatex'
-let g:livepreview_previewer = 'evince'
-
 " Quick indentation formatting for the whole file
 nnoremap <C-A-L> gg=G''
-
-" Spell check
-autocmd FileType tex set spell spelllang=en,fr
 
 " Color column at 80 char
 augroup collumnLimit
@@ -179,24 +167,6 @@ augroup collumnLimit
                 \ let w:m1=matchadd('CollumnLimit', pattern, -1)
 augroup END
 hi Normal guibg=NONE ctermbg=NONE
-
-" Nvim-R
-" remapping the basic :: send line
-nmap , <Plug>RDSendLine
-" remapping selection :: send multiple lines
-vmap , <Plug>RDSendSelection
-" remapping selection :: send multiple lines + echo lines
-vmap ,e <Plug>RESendSelection
-
-" Markdown preview
-let g:mkdp_browser = 'firefox'
-nmap <C-p> <Plug>MarkdownPreviewToggle
-
-" Go editing
-" Run goimports along gofmt on each save
-let g:go_fmt_command = "goimports"
-" Automatically get signature/type info for object under cursor
-let g:go_auto_type_info = 1
 
 " Vim gutter (git integration)
 " Use fontawesome icons as signs
