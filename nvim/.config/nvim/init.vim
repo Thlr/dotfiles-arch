@@ -65,7 +65,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 " Git integration
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 
 " Go programming
 Plug 'fatih/vim-go'
@@ -74,23 +74,14 @@ call plug#end()
 
 filetype plugin indent on
 
-" color cheme
-" colorscheme wpgtkAlt
-colorscheme gruvbox
-" au VimEnter * exec 'AirlineTheme wpgtk'
-" au VimEnter * exec 'AirlineTheme luna'
-
-" airline :
-" for terminology you will need either to export TERM='xterm-256color'
-" or run it with '-2' option
-let g:airline_powerline_fonts = 1
-set laststatus=2
-set encoding=utf-8
-
 syntax on
 
+""""""""""""""
+" Aesthetics "
+""""""""""""""
 let g:gruvbox_italic=1
 set background=dark
+colorscheme gruvbox
 set rnu nu " hybrid line numbers
 augroup numbertoggle
     autocmd!
@@ -98,6 +89,9 @@ augroup numbertoggle
     autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
 augroup END
 
+let g:airline_powerline_fonts = 1
+set laststatus=2
+set encoding=utf-8
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -202,4 +196,22 @@ nmap <C-p> <Plug>MarkdownPreviewToggle
 " Run goimports along gofmt on each save
 let g:go_fmt_command = "goimports"
 " Automatically get signature/type info for object under cursor
-let g:go_auto_type_info =             "1
+let g:go_auto_type_info = 1
+
+" Vim gutter (git integration)
+" Use fontawesome icons as signs
+let g:gitgutter_sign_added = ''
+let g:gitgutter_sign_modified = ''
+let g:gitgutter_sign_removed = ''
+let g:gitgutter_sign_removed_first_line = ''
+let g:gitgutter_sign_modified_removed = ''
+let g:gitgutter_override_sign_column_highlight = 1
+highlight SignColumn guibg=dark
+highlight SignColumn ctermbg=black
+set updatetime=250
+" Jump between hunks
+nmap <Leader>gn <Plug>(GitGutterNextHunk)
+nmap <Leader>gp <Plug>(GitGutterPrevHunk)
+" Hunk-add and hunk-revert for chunk staging
+nmap <Leader>ga <Plug>(GitGutterStageHunk)
+nmap <Leader>gu <Plug>(GitGutterUndoHunk)
