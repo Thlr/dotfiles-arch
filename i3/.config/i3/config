@@ -45,9 +45,6 @@ smart_gaps on
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 
-workspace $ws1 gaps inner 0
-workspace $ws1 gaps outer 0
-
 ############
 # BINDINGS #
 ############
