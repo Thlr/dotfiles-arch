@@ -18,7 +18,6 @@
 "" after that copy this file as your $HOME/.config/nvim/init.vim (or ~/.vimrc for classic vim) and execute :PlugInstall
 
 set nocompatible
-filetype off
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -91,11 +90,12 @@ if (empty($TMUX))
   endif
 endif
 
-let g:gruvbox_italic=1
-set background=dark
-" colorscheme gruvbox
 colorscheme one
+" colorscheme gruvbox
 let g:airline_theme='one'
+set background=dark
+let g:one_allow_italics = 1
+
 set rnu nu " hybrid line numbers
 augroup numbertoggle
     autocmd!
@@ -160,9 +160,6 @@ set noerrorbells
 " Code stats
 let g:codestats_api_key = "SFMyNTY.VkdobGIyeHkjI016WTROZz09.G5HVXCuZwY3G0lw-AHTmHOhLt6kylmRgGvLOONWA7Xo"
 "let g:airline_section_x = airline#section#create_right(['tagbar', 'filetype', '%{CodeStatsXp()}'])
-
-" Quick indentation formatting for the whole file
-nnoremap <C-A-L> gg=G''
 
 " Color column at 80 char
 augroup collumnLimit
