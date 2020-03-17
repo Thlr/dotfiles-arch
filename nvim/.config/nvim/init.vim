@@ -110,12 +110,6 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-" replace tabs
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-
 " enable folding
 set foldmethod=indent
 set foldlevel=99

@@ -293,8 +293,8 @@ exec --no-startup-id nm-applet
 exec --no-startup-id udiskie
 exec --no-startup-id blueman-applet
 exec --no-startup-id megasync
-exec --no-startup-id firefox
 exec --no-startup-id i3-msg 'workspace $ws3; exec kitty -e ranger'
 exec --no-startup-id i3-msg 'workspace $ws2; exec $terminal'
+exec --no-startup-id i3-msg 'workspace $ws1; exec firefox'
 
 exec --no-startup-id bash ~/.config/polybar/launch.sh
