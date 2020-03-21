@@ -24,7 +24,44 @@ if ! zgen saved; then
   zgen save
 fi
 
-source ~/.aliases
+###########
+# ALIASES #
+###########
+
+# enable color support of ls and also add handy aliases
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias gl='cd ~/cours/2A/Projet_GL'
+
+alias gistats='~/.local/share/gitstats/gitstats'
+
+alias vpn='/opt/cisco/anyconnect/bin/vpn'
+alias vpnui='/opt/cisco/anyconnect/bin/vpnui'
+
+alias avalanche='cd ~/cours/2A/projet-file/avalancheModeling'
+
+alias whats='cd ~/work/qapa/whatsapp'
+
+alias vim='nvim'
 
 # added by Anaconda3 2018.12 installer
 # >>> conda init >>>
@@ -43,6 +80,10 @@ fi
 unset __conda_setup
 # <<< conda init <<<
 conda deactivate
+
+###########
+# EXPORTS #
+###########
 
 # Android sdk related exports
 export ANDROID_HOME=$HOME"/Android/Sdk"
@@ -64,6 +105,9 @@ export PATH="/usr/local/texlive/2019/bin/x86_64-linux":$PATH
 
 # Rider IDE
 export PATH="$HOME/.local/share/JetBrains/Toolbox/apps/JetBrains Rider-2019.3/bin/":$PATH
+
+#
+export PATH="$HOME/.local/share/minecraft-launcher/":$PATH
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
