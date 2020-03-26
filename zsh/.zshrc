@@ -48,7 +48,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
-alias l='ls -CF'
+alias l='ls -l'
 
 alias gl='cd ~/cours/2A/Projet_GL'
 
@@ -106,8 +106,11 @@ export PATH="/usr/local/texlive/2019/bin/x86_64-linux":$PATH
 # Rider IDE
 export PATH="$HOME/.local/share/JetBrains/Toolbox/apps/JetBrains Rider-2019.3/bin/":$PATH
 
-#
+# uuuh
 export PATH="$HOME/.local/share/minecraft-launcher/":$PATH
+
+# snap
+export PATH="/var/lib/snapd/snap/bin/":$PATH
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

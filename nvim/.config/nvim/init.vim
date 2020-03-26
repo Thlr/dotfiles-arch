@@ -31,16 +31,22 @@ Plug 'tpope/vim-sensible' " sane defaults
 
 " eye candy
 Plug 'vim-airline/vim-airline' " status bar (needs special fonts)
-Plug 'vim-airline/vim-airline-themes'
-Plug 'morhetz/gruvbox' " very nice and soft color theme
 Plug 'ryanoasis/vim-devicons' " various symbols (linux, rust, python, ...)
 " Plug 'deviantfero/wpgtk.vim' " Automatic theme based on wallpaper
-Plug 'rakr/vim-one' " super cool looking theme
 Plug 'sheerun/vim-polyglot' " better language support
+" themes
+Plug 'morhetz/gruvbox' " very nice and soft color theme
+Plug 'rakr/vim-one' " super cool looking theme
+Plug 'joshdick/onedark.vim'
+Plug 'git@gitlab.com:yorickpeterse/happy_hacking.vim.git'
+Plug 'sts10/vim-pink-moon'
+Plug 'liuchengxu/space-vim-dark'
+Plug 'jacoborus/tender.vim'
 
 " Quality of life plugins
 Plug 'scrooloose/nerdtree' " browse files tree
 " Plug 'junegunn/fzf' " fuzzy files finding
+Plug 'kien/ctrlp.vim'
 " Plug 'https://gitlab.com/code-stats/code-stats-vim.git' " For stats on the code
 
 " LaTeX editing
@@ -90,10 +96,9 @@ if (empty($TMUX))
   endif
 endif
 
-colorscheme one
-" colorscheme gruvbox
-let g:airline_theme='one'
-set background=dark
+color tender
+" hi Normal guibg=NONE ctermbg=NONE
+" set background=dark
 let g:one_allow_italics = 1
 
 set rnu nu " hybrid line numbers
@@ -153,7 +158,6 @@ set noerrorbells
 
 " Code stats
 let g:codestats_api_key = "SFMyNTY.VkdobGIyeHkjI016WTROZz09.G5HVXCuZwY3G0lw-AHTmHOhLt6kylmRgGvLOONWA7Xo"
-"let g:airline_section_x = airline#section#create_right(['tagbar', 'filetype', '%{CodeStatsXp()}'])
 
 " Color column at 80 char
 augroup collumnLimit
@@ -166,7 +170,6 @@ augroup collumnLimit
     autocmd BufEnter,WinEnter,FileType scala,java,python,tex
                 \ let w:m1=matchadd('CollumnLimit', pattern, -1)
 augroup END
-hi Normal guibg=NONE ctermbg=NONE
 
 " Vim gutter (git integration)
 " Use fontawesome icons as signs
@@ -183,3 +186,7 @@ nmap <Leader>gp <Plug>(GitGutterPrevHunk)
 " Hunk-add and hunk-revert for chunk staging
 nmap <Leader>ga <Plug>(GitGutterStageHunk)
 nmap <Leader>gu <Plug>(GitGutterUndoHunk)
+
+" Crtp
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
