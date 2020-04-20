@@ -1,23 +1,101 @@
-"" Théo Larue's vim config file, intended to use with neovim but surely
-"" compatible with vim
-"" Originally based on the vim 8 config file by Ensimag
-
-"" - install plug with :
-""      curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"" (see https://github.com/junegunn/vim-plug)
-"" - install the languageserver server for each language you indend to use :
-""    * pyls for python (see https://github.com/palantir/python-language-server)
-""    * rls for rust (see https://github.com/rust-lang-nursery/rls)
-""    * clangd for c
-"" - you need to install jedi for python auto-completion
-"" - install some font with powerline symbols for eye candy and icons
-"" (see https://github.com/powerline/fonts)
-"" - You may want to install nerd fonts for more compatibility with airline and vim
-"" devicons https://github.com/ryanoasis/nerd-fonts
-
-"" after that copy this file as your $HOME/.config/nvim/init.vim (or ~/.vimrc for classic vim) and execute :PlugInstall
+let mapleader=" "
+"set clipboard+=unamedplus
 
 set nocompatible
+
+filetype plugin indent on
+
+syntax on
+
+" enable folding
+set foldmethod=indent
+set foldlevel=99
+
+set mouse=a
+
+set wildmode=longest,list,full
+
+set splitbelow splitright
+
+""""""""""""
+" BINDINGS "
+""""""""""""
+
+" fast folding
+nnoremap <space> za
+
+" fast buffer navigation
+nnoremap <F5> :buffers<CR>:buffer<Space>
+nmap <Tab> :tabn<CR>
+
+" split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Auto comment
+map <leader>c :setlocal formatoptions-=cro<CR>
+map <leader>C :setlocal formatoptions=cro<CR>
+
+" Spell check
+map <leader>sfr :setlocal spell! spelllang=fr<CR>
+map <leader>sen :setlocal spell! spelllang=en_us<CR>
+
+" Auto indent
+map <leader>i :setlocal autoindent<CR>
+map <leader>I :setlocal noautoindent<CR>
+
+""""""""""
+" VISUAL "
+""""""""""
+
+" highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+\%#\@<!$/
+set rnu nu " hybrid line numbers
+
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+augroup END
+
+" Disable the bell for intellij
+set visualbell
+set noerrorbells
+
+" Color column at 80 char
+augroup collumnLimit
+    autocmd!
+    autocmd BufEnter,WinEnter,FileType python,tex
+                \ highlight CollumnLimit ctermbg=DarkGrey guibg=DarkGrey
+    let collumnLimit = 79 " feel free to customize
+    let pattern =
+                \ '\%<' . (collumnLimit+1) . 'v.\%>' . collumnLimit . 'v'
+    autocmd BufEnter,WinEnter,FileType python,tex
+                \ let w:m1=matchadd('CollumnLimit', pattern, -1)
+augroup END
+
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
+"""""""""""
+" PLUGINS "
+"""""""""""
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -55,8 +133,8 @@ Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'} " Live preview of LaTeX PDF 
 
 " autocompletion and snippets
 " Plug 'zxqfl/tabnine-vim'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ycm-core/YouCompleteMe'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'ycm-core/YouCompleteMe'
 
 " R editing
 Plug 'jalvesaq/Nvim-R'
@@ -73,56 +151,18 @@ Plug 'fatih/vim-go'
 
 call plug#end()
 
-filetype plugin indent on
-
-syntax on
-
 """"""""""""""
 " Aesthetics "
 """"""""""""""
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (empty($TMUX))
-  if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
-
 color tender
 " hi Normal guibg=NONE ctermbg=NONE
 " set background=dark
-let g:one_allow_italics = 1
-
-set rnu nu " hybrid line numbers
-augroup numbertoggle
-    autocmd!
-    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
-augroup END
 
 let g:airline_powerline_fonts = 1
 set laststatus=2
-set encoding=utf-8
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-
-" enable folding
-set foldmethod=indent
-set foldlevel=99
-nnoremap <space> za
-
-" highlight trailing whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+\%#\@<!$/
 
 " NERDTree config
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
@@ -141,35 +181,8 @@ function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
     exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
-" fast buffer navigation
-nnoremap <F5> :buffers<CR>:buffer<Space>
-nmap <Tab> :tabn<CR>
-
-" split navigations
-let g:BASH_Ctrl_j = 'off'
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" Disable the bell for intellij
-set visualbell
-set noerrorbells
-
 " Code stats
 let g:codestats_api_key = "SFMyNTY.VkdobGIyeHkjI016WTROZz09.G5HVXCuZwY3G0lw-AHTmHOhLt6kylmRgGvLOONWA7Xo"
-
-" Color column at 80 char
-augroup collumnLimit
-    autocmd!
-    autocmd BufEnter,WinEnter,FileType scala,java,python,tex
-                \ highlight CollumnLimit ctermbg=DarkGrey guibg=DarkGrey
-    let collumnLimit = 79 " feel free to customize
-    let pattern =
-                \ '\%<' . (collumnLimit+1) . 'v.\%>' . collumnLimit . 'v'
-    autocmd BufEnter,WinEnter,FileType scala,java,python,tex
-                \ let w:m1=matchadd('CollumnLimit', pattern, -1)
-augroup END
 
 " Vim gutter (git integration)
 " Use fontawesome icons as signs
@@ -190,3 +203,57 @@ nmap <Leader>gu <Plug>(GitGutterUndoHunk)
 " Crtp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+"LaTeX editing and preview config
+let g:livepreview_previewer = 'zathura'
+let g:livepreview_cursorhold_recompile = 0
+
+" coc nvim config
+" TextEdit might fail if hidden is not set.
+set hidden
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)

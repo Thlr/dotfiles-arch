@@ -98,10 +98,10 @@ export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
 
 # PATH variables for texlive
-TEXLIVE_HOME="/usr/local/texlive/2019"
+TEXLIVE_HOME="/usr/local/texlive/2020"
 export MANPATH=$MANPATH:$TEXLIVE_HOME"/texmf-dist/doc/man"
 export INFOPATH=$INFOPATH:$TEXLIVE_HOME"/texmf-dist/doc/info"
-export PATH="/usr/local/texlive/2019/bin/x86_64-linux":$PATH
+export PATH="/usr/local/texlive/2020/bin/x86_64-linux":$PATH
 
 # Rider IDE
 export PATH="$HOME/.local/share/JetBrains/Toolbox/apps/JetBrains Rider-2019.3/bin/":$PATH
