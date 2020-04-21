@@ -7,8 +7,8 @@ set $mod Mod4
 font pango:monospace 8
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 0
-default_floating_border pixel 0
+default_border pixel 1
+default_floating_border pixel 1
 
 # Hide borders
 hide_edge_borders none
@@ -35,15 +35,14 @@ set $terminal kitty
 ########
 #
 # Set inner/outer gaps
-gaps inner 13
-gaps outer 0
+gaps inner 8
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders on
+# smart_borders no_gaps
 
 ############
 # BINDINGS #

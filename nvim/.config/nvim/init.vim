@@ -21,9 +21,6 @@ set splitbelow splitright
 " BINDINGS "
 """"""""""""
 
-" fast folding
-nnoremap <space> za
-
 " fast buffer navigation
 nnoremap <F5> :buffers<CR>:buffer<Space>
 nmap <Tab> :tabn<CR>
