@@ -63,6 +63,7 @@ bindsym $mod+F5 exec "mons -n right"
 bindsym $mod+F6 exec "bash ~/.config/polybar/launch.sh"
 bindsym $mod+F7 exec "bash ~/.config/i3/scripts/dual-screen.sh"
 bindsym $mod+F8 exec "wpg -m"
+bindsym $mod+F9 exec "bash ~/.config/i3/scripts/dual-screen-and-tv.sh"
 bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b --config ~/.config/compton/compton.conf
@@ -189,9 +190,8 @@ bindsym $mod+o exec --no-startup-id blurlock
 
 # Define names for default workspaces for which we configure key bindings later on.
 set $ws1 "1 : "
-set $ws2 "2 : "
-set $ws3 "3 : "
-# set $ws4 "4 : "
+set $ws2 "2 : "
+set $ws3 "3 : "
 set $ws4 "4 : "
 set $ws5 "5 : "
 set $ws6 "6 : "
@@ -284,7 +284,7 @@ for_window [class="zoom"] floating enable
 
 
 # Autostart applications
-exec --no-startup-id bash ~/.config/wpg/wp_init.sh
+# exec --no-startup-id bash ~/.config/wpg/wp_init.sh
 exec --no-startup-id compton -b --config ~/.config/compton/compton.conf
 
 exec --no-startup-id pa-applet
@@ -293,8 +293,6 @@ exec --no-startup-id nm-applet
 exec --no-startup-id udiskie
 exec --no-startup-id blueman-applet
 exec --no-startup-id megasync
-exec --no-startup-id i3-msg 'workspace $ws3; exec kitty -e ranger'
-exec --no-startup-id i3-msg 'workspace $ws2; exec $terminal'
 exec --no-startup-id i3-msg 'workspace $ws1; exec firefox'
 
 exec --no-startup-id bash ~/.config/polybar/launch.sh

@@ -5,3 +5,4 @@ let g:mkdp_browser = 'firefox'
 setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal expandtab
+let g:mkdp_auto_close = 0
