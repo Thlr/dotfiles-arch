@@ -211,6 +211,7 @@ let g:ctrlp_cmd = 'CtrlP'
 "LaTeX editing and preview config
 let g:livepreview_previewer = 'zathura'
 let g:livepreview_cursorhold_recompile = 0
+let g:livepreview_engine = 'xelatex'
 
 " coc nvim config
 " " TextEdit might fail if hidden is not set.
