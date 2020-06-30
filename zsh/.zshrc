@@ -127,3 +127,6 @@ fda() {
   local dir
   dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
 }
+
+#Go debugging tool
+export PATH="/home/theo/go/bin/":$PATH

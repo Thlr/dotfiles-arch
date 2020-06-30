@@ -1,4 +1,5 @@
 let mapleader=" "
+let maplocalleader=","
 set clipboard+=unnamedplus
 
 set nocompatible
@@ -137,8 +138,8 @@ Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'} " Live preview of LaTeX PDF 
 
 " autocompletion and snippets
 " Plug 'zxqfl/tabnine-vim'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ycm-core/YouCompleteMe'
+ Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'ycm-core/YouCompleteMe'
 
 " R editing
 Plug 'jalvesaq/Nvim-R'
@@ -152,6 +153,7 @@ Plug 'tpope/vim-fugitive'
 
 " Go programming
 Plug 'fatih/vim-go'
+Plug 'sebdah/vim-delve'
 
 call plug#end()
 
@@ -211,51 +213,84 @@ let g:ctrlp_cmd = 'CtrlP'
 "LaTeX editing and preview config
 let g:livepreview_previewer = 'zathura'
 let g:livepreview_cursorhold_recompile = 0
-let g:livepreview_engine = 'xelatex'
+" let g:livepreview_engine = 'xelatex'
 
-" coc nvim config
-" " TextEdit might fail if hidden is not set.
-" set hidden
-" " Don't pass messages to |ins-completion-menu|.
-" set shortmess+=c
-" " Always show the signcolumn, otherwise it would shift the text each time
-" " diagnostics appear/become resolved.
-" set signcolumn=yes
-" " Use tab for trigger completion with characters ahead and navigate.
-" " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" " other plugin before putting this into your config.
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-" function! s:check_back_space() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~# '\s'
-" endfunction
-" " Use <c-space> to trigger completion.
-" inoremap <silent><expr> <c-space> coc#refresh()
-" " Use `[g` and `]g` to navigate diagnostics
-" nmap <silent> [g <Plug>(coc-diagnostic-prev)
-" nmap <silent> ]g <Plug>(coc-diagnostic-next)
-" " GoTo code navigation.
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
-" " Use K to show documentation in preview window.
-" nnoremap <silent> K :call <SID>show_documentation()<CR>
-" function! s:show_documentation()
-"   if (index(['vim','help'], &filetype) >= 0)
-"     execute 'h '.expand('<cword>')
-"   else
-"     call CocAction('doHover')
-"   endif
-" endfunction
-" " Highlight the symbol and its references when holding the cursor.
-" " autocmd CursorHold * silent call CocActionAsync('highlight')
-" " Symbol renaming.
-" nmap <leader>rn <Plug>(coc-rename)
-" " Formatting selected code.
-" xmap <leader>f  <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format-selected)
+" Nvim-R
+" remapping the basic :: send line
+nmap ; <Plug>RDSendLine
+" remapping selection :: send multiple lines
+vmap ; <Plug>RDSendSelection
+" remapping selection :: send multiple lines + echo lines
+vmap ;e <Plug>RESendSelection
+
+" Go setup
+" vim-delve
+nmap <Leader>b <Plug>(DlvToggleBreakPoint)
+" Run goimports along gofmt on each save
+let g:go_fmt_command = "goimports"
+" Automatically get signature/type info for object under cursor
+let g:go_auto_type_info = 1
+
+"""""""
+" COC "
+"""""""
+let g:coc_global_extensions = [
+    \ 'coc-json',
+    \ 'coc-python',
+    \ 'coc-texlab',
+    \ 'coc-markdownlint',
+    \ 'coc-go',
+    \ ]
+"    \ 'coc-snippets',
+"    \ 'coc-pairs',
+
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "<C-n>" :
+      \ <SID>check_back_space() ? "<Tab>" :
+      \ coc#refresh()
+
+" configure maralla/completor to use tab
+" other configurations are possible (see website)
+inoremap <expr> <Tab> pumvisible() ? "<C-n>" : "<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "<C-p>" : "<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "<C-y><cr>" : "<cr>"
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use [g and ]g to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <F2> <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
