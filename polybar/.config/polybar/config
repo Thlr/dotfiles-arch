@@ -37,7 +37,7 @@ format-margin =
 format-offset =
 
 [colors]
-background = #cd000000
+background = #d8000000
 background2 = ${colors.background}
 foreground = ${xrdb:foreground:#222}
 alert = #d81b5f
@@ -86,7 +86,7 @@ monitor = ${env:MONITOR}
 ;monitor-fallback = HDMI1
 monitor-strict = false
 override-redirect = false
-bottom = true
+bottom = false
 fixed-center = false
 width = 100%
 height = 30

@@ -130,7 +130,6 @@ Plug 'jacoborus/tender.vim'
 Plug 'scrooloose/nerdtree' " browse files tree
 " Plug 'junegunn/fzf' " fuzzy files finding
 Plug 'kien/ctrlp.vim'
-" Plug 'https://gitlab.com/code-stats/code-stats-vim.git' " For stats on the code
 
 " LaTeX editing
 Plug 'vim-latex/vim-latex'
@@ -187,9 +186,6 @@ function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
     exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
-" Code stats
-let g:codestats_api_key = "SFMyNTY.VkdobGIyeHkjI016WTROZz09.G5HVXCuZwY3G0lw-AHTmHOhLt6kylmRgGvLOONWA7Xo"
-
 " Vim gutter (git integration)
 " Use fontawesome icons as signs
 let g:gitgutter_sign_added = ''
@@ -198,7 +194,7 @@ let g:gitgutter_sign_removed = ''
 let g:gitgutter_sign_removed_first_line = ''
 let g:gitgutter_sign_modified_removed = ''
 " let g:gitgutter_override_sign_column_highlight = 1
-set updatetime=250
+set updatetime=150
 " Jump between hunks
 nmap <Leader>gn <Plug>(GitGutterNextHunk)
 nmap <Leader>gp <Plug>(GitGutterPrevHunk)
@@ -240,6 +236,7 @@ let g:coc_global_extensions = [
     \ 'coc-texlab',
     \ 'coc-markdownlint',
     \ 'coc-go',
+    \ 'coc-highlight',
     \ ]
 "    \ 'coc-snippets',
 "    \ 'coc-pairs',
@@ -277,13 +274,13 @@ nmap <silent> gr <Plug>(coc-references)
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-"function! s:show_documentation()
-"  if (index(['vim','help'], &filetype) >= 0)
-"    execute 'h '.expand('<cword>')
-"  else
-"    call CocAction('doHover')
-"  endif
-"endfunction
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocActionSync('doHover')
+  endif
+endfunction
 
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
