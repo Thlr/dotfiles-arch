@@ -278,12 +278,12 @@ function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
-    call CocActionSync('doHover')
+    silent call CocActionSync('doHover')
   endif
 endfunction
 
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd CursorHold * silent call CocAction('highlight')
 
 " Remap for rename current word
 nmap <F2> <Plug>(coc-rename)
