@@ -8,3 +8,5 @@
 	br = branch
 	ci = commit
 	st = status
+[url "ssh://git@gitlab.com/"]
+	insteadOf = https://gitlab.com/

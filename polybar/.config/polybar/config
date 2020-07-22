@@ -37,7 +37,7 @@ format-margin =
 format-offset =
 
 [colors]
-background = #f0000000
+background = #cd000000
 background2 = ${colors.background}
 foreground = ${xrdb:foreground:#222}
 alert = #d81b5f
