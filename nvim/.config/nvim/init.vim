@@ -115,8 +115,8 @@ Plug 'tpope/vim-sensible' " sane defaults
 " eye candy
 Plug 'vim-airline/vim-airline' " status bar (needs special fonts)
 Plug 'ryanoasis/vim-devicons' " various symbols (linux, rust, python, ...)
-" Plug 'deviantfero/wpgtk.vim' " Automatic theme based on wallpaper
 Plug 'sheerun/vim-polyglot' " better language support
+
 " themes
 Plug 'morhetz/gruvbox' " very nice and soft color theme
 Plug 'rakr/vim-one' " super cool looking theme
@@ -127,7 +127,7 @@ Plug 'liuchengxu/space-vim-dark'
 Plug 'jacoborus/tender.vim'
 
 " Quality of life plugins
-Plug 'scrooloose/nerdtree' " browse files tree
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 " Plug 'junegunn/fzf' " fuzzy files finding
 Plug 'kien/ctrlp.vim'
 
@@ -169,23 +169,6 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-" NERDTree config
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-" Automatically open NERDTree if no files were specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" open NERDTree when vim starts up on opening a directory
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-" Shortcut for nerdtree
-map <C-n> :NERDTreeToggle<CR>
-"Close vim if the only window left open is nerdTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" NERDTress File highlighting
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-    exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-    exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
-
 " Vim gutter (git integration)
 " Use fontawesome icons as signs
 let g:gitgutter_sign_added = ''
@@ -209,7 +192,7 @@ let g:ctrlp_cmd = 'CtrlP'
 "LaTeX editing and preview config
 let g:livepreview_previewer = 'zathura'
 let g:livepreview_cursorhold_recompile = 0
-" let g:livepreview_engine = 'xelatex'
+let g:livepreview_engine = 'pdflatex' . '-shell-escape'
 
 " Nvim-R
 " remapping the basic :: send line
@@ -291,3 +274,6 @@ nmap <F2> <Plug>(coc-rename)
 " Remap for format selected region
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+
+" CHADTree
+nnoremap <leader>v <cmd>CHADopen<cr>
