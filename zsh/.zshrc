@@ -94,7 +94,6 @@ export PATH="/var/lib/snapd/snap/bin/":$PATH
 
 # kubectl and minikube autocompletion
 source <(kubectl completion zsh)
-source <(minikube completion zsh)
 
 # nix related packages
 source ~/.nix-profile/etc/profile.d/nix.sh
