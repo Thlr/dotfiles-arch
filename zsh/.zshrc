@@ -123,3 +123,6 @@ fda() {
 
 #Go debugging tool
 export PATH="/home/theo/go/bin/":$PATH
+
+# kubernetes aliases
+alias kctl=kubectl
