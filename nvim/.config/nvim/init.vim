@@ -121,7 +121,6 @@ Plug 'sheerun/vim-polyglot' " better language support
 Plug 'morhetz/gruvbox' " very nice and soft color theme
 Plug 'rakr/vim-one' " super cool looking theme
 Plug 'joshdick/onedark.vim'
-Plug 'git@gitlab.com:yorickpeterse/happy_hacking.vim.git'
 Plug 'sts10/vim-pink-moon'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'jacoborus/tender.vim'

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Do not include stow in that list. It is loaded beforehand anyways
-apps="compton dunst git i3 kitty nix nvim p10k polybar ranger redshift rofi wpg zathura zsh tmux"
+apps="dunst git kitty nix nvim p10k ranger rofi zathura zsh tmux"
 
 OPTS=$@
 

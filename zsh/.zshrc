@@ -1,7 +1,6 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-CODESTATS_API_KEY="SFMyNTY.VkdobGIyeHkjI016WTROZz09.G5HVXCuZwY3G0lw-AHTmHOhLt6kylmRgGvLOONWA7Xo"
-ZSH_THEME=powerlevel10k/powerlevel10k
+# ZSH_THEME=powerlevel10k/powerlevel10k
 
 source "${HOME}/.zgen/zgen.zsh"
 
@@ -10,7 +9,6 @@ if ! zgen saved; then
 
   # specify plugins here
   zgen oh-my-zsh
-  zgen load https://gitlab.com/code-stats/code-stats-zsh.git
   zgen load romkatv/powerlevel10k powerlevel10k
 
   # generate the init script from plugins above
@@ -43,16 +41,8 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -l'
 
-alias gl='cd ~/cours/2A/Projet_GL'
-
-alias gistats='~/.local/share/gitstats/gitstats'
-
 alias vpn='/opt/cisco/anyconnect/bin/vpn'
 alias vpnui='/opt/cisco/anyconnect/bin/vpnui'
-
-alias avalanche='cd ~/cours/2A/projet-file/avalancheModeling'
-
-alias whats='cd ~/work/qapa/whatsapp'
 
 alias vim='nvim'
 
@@ -96,12 +86,6 @@ export MANPATH=$MANPATH:$TEXLIVE_HOME"/texmf-dist/doc/man"
 export INFOPATH=$INFOPATH:$TEXLIVE_HOME"/texmf-dist/doc/info"
 export PATH="/usr/local/texlive/2020/bin/x86_64-linux":$PATH
 
-# Rider IDE
-export PATH="$HOME/.local/share/JetBrains/Toolbox/apps/JetBrains Rider-2019.3/bin/":$PATH
-
-# uuuh
-export PATH="$HOME/.local/share/minecraft-launcher/":$PATH
-
 # snap
 export PATH="/var/lib/snapd/snap/bin/":$PATH
 
@@ -114,12 +98,6 @@ source <(minikube completion zsh)
 
 # nix related packages
 source ~/.nix-profile/etc/profile.d/nix.sh
-
-# fzf useful commands
-fda() {
-  local dir
-  dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
-}
 
 #Go debugging tool
 export PATH="/home/theo/go/bin/":$PATH
