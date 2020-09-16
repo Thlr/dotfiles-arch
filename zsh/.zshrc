@@ -1,5 +1,3 @@
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # ZSH_THEME=powerlevel10k/powerlevel10k
 
 source "${HOME}/.zgen/zgen.zsh"
@@ -33,9 +31,6 @@ fi
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -46,49 +41,6 @@ alias vpnui='/opt/cisco/anyconnect/bin/vpnui'
 
 alias vim='nvim'
 
-# added by Anaconda3 2018.12 installer
-# >>> conda init >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$(CONDA_REPORT_ERRORS=false '/home/theo/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    \eval "$__conda_setup"
-else
-    if [ -f "/home/theo/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/theo/anaconda3/etc/profile.d/conda.sh"
-        CONDA_CHANGEPS1=false conda activate base
-    else
-        \export PATH="/home/theo/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda init <<<
-conda deactivate
-
-###########
-# EXPORTS #
-###########
-
-# Android sdk related exports
-export ANDROID_HOME=$HOME"/Android/Sdk"
-export PATH=$PATH:$ANDROID_HOME"/emulator"
-export PATH=$PATH:$ANDROID_HOME"/tools"
-export PATH=$PATH:$ANDROID_HOME"/tools/bin"
-export PATH=$PATH:$ANDROID_HOME"/platform-tools"
-export PATH=$PATH:$ANDROID_HOME"/build-tools"
-
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
-
-# PATH variables for texlive
-TEXLIVE_HOME="/usr/local/texlive/2020"
-export MANPATH=$MANPATH:$TEXLIVE_HOME"/texmf-dist/doc/man"
-export INFOPATH=$INFOPATH:$TEXLIVE_HOME"/texmf-dist/doc/info"
-export PATH="/usr/local/texlive/2020/bin/x86_64-linux":$PATH
-
-# snap
-export PATH="/var/lib/snapd/snap/bin/":$PATH
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -96,10 +48,10 @@ export PATH="/var/lib/snapd/snap/bin/":$PATH
 source <(kubectl completion zsh)
 
 # nix related packages
-source ~/.nix-profile/etc/profile.d/nix.sh
-
-#Go debugging tool
-export PATH="/home/theo/go/bin/":$PATH
+#source ~/.nix-profile/etc/profile.d/nix.sh
 
 # kubernetes aliases
 alias kctl=kubectl
+
+# nice ls colors
+source "/home/thlr/.local/share/lscolors.sh"

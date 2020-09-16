@@ -8,15 +8,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
-
-
-
-
-
-
-
     xrdb -merge $sysresources
-
 fi
 
 if [ -f $sysmodmap ]; then
@@ -24,15 +16,7 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
-
     xrdb -merge "$userresources"
-
 fi
 
 if [ -f "$usermodmap" ]; then
@@ -53,5 +37,8 @@ fi
 #xterm -geometry 80x50+494+51 &
 #xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
+
+feh --bg-scale $HOME/dotfiles/wallpapers/abstract-blue.jpg &
+picom -b
 
 exec dwm
