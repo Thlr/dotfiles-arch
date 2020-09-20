@@ -39,6 +39,7 @@ fi
 #exec xterm -geometry 80x66+0+0 -name login
 
 feh --bg-scale $HOME/dotfiles/wallpapers/abstract-blue.jpg &
-picom -b
+picom -b &
+xss-lock --transfer-sleep-lock -- sessionlock &
 
 exec dwm
