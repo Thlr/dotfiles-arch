@@ -4,13 +4,7 @@
 # to charge status (🔌 for plugged up, 🔋 for discharging on battery, etc.).
 
 case $BLOCK_BUTTON in
-	3) notify-send "🔋 Battery module" "🔋: discharging
-🛑: not charging
-♻: stagnant charge
-🔌: charging
-⚡: charged
-❗: battery very low!
-- Scroll to change adjust xbacklight." ;;
+	3) notify-send "Scroll to change adjust xbacklight." ;;
 	4) xbacklight -inc 10 ;;
 	5) xbacklight -dec 10 ;;
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
@@ -24,11 +18,63 @@ for battery in /sys/class/power_supply/BAT?
 do
 	# Get its remaining capacity and charge status.
 	capacity=$(cat "$battery"/capacity 2>/dev/null) || break
-	status=$(sed "s/[Dd]ischarging/🔋/;s/[Nn]ot charging/🛑/;s/[Cc]harging/🔌/;s/[Uu]nknown/♻️/;s/[Ff]ull/⚡/" "$battery"/status)
+	status=$(cat "$battery"/status)
+	icon=""
 
-	# If it is discharging and 25% or less, we will add a ❗ as a warning.
-	 [ "$capacity" -le 25 ] && [ "$status" = "🔋" ] && warn="❗"
+	# Prefix
+	case $status in
+		"Discharging")
+			if (($capacity < 10)); then
+				icon=""
+			elif (($capacity < 20)); then
+				icon=""
+			elif (($capacity < 30)); then
+				icon=""
+			elif (($capacity < 40)); then
+				icon=""
+			elif (($capacity < 50)); then
+				icon=""
+			elif (($capacity < 60)); then
+				icon=""
+			elif (($capacity < 70)); then
+				icon=""
+			elif (($capacity < 80)); then
+				icon=""
+			elif (($capacity < 90)); then
+				icon=""
+			elif (($capacity < 100)); then
+				icon=""
+			else
+				icon=""
+			fi
+			;;
+		"Not charging")
+				icon=""
+			;;
+		"Charging")
+			if (($capacity < 20)); then
+				icon=""
+			elif (($capacity < 30)); then
+				icon=""
+			elif (($capacity < 40)); then
+				icon=""
+			elif (($capacity < 60)); then
+				icon=""
+			elif (($capacity < 80)); then
+				icon=""
+			elif (($capacity < 100)); then
+				icon=""
+			else
+				icon=""
+			fi
+			;;
+		"Unknown")
+			icon=
+			;;
+		"Full")
+			;;
+	esac
 
-	printf "%s%s%s%% " "$status" "$warn" "$capacity"
-	unset warn
+	echo $icon $capacity%
+	#printf "%s%s%%" "$icon" "$capacity"
 done | sed 's/ *$//'
