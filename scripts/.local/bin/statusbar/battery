@@ -69,9 +69,10 @@ do
 			fi
 			;;
 		"Unknown")
-			icon=
+			icon=""
 			;;
 		"Full")
+			icon=""
 			;;
 	esac
 

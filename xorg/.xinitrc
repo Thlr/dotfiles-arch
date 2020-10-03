@@ -41,5 +41,7 @@ fi
 feh --bg-scale $HOME/dotfiles/wallpapers/abstract-blue.jpg &
 picom -b &
 xss-lock --transfer-sleep-lock -- sessionlock &
+blueman-applet &
+lorri daemon &
 
 exec dwm
