@@ -38,10 +38,11 @@ fi
 #xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
 
-feh --bg-scale $HOME/dotfiles/wallpapers/abstract-blue.jpg &
+feh --bg-scale $HOME/dotfiles/wallpapers/jrogers_11.webp &
 picom -b &
 xss-lock --transfer-sleep-lock -- sessionlock &
 blueman-applet &
 lorri daemon &
+megasync &
 
 exec dwm

@@ -58,7 +58,7 @@ source <(kubectl completion zsh)
 #source ~/.nix-profile/etc/profile.d/nix.sh
 
 # kubernetes aliases
-alias kctl=kubectl
+alias k=kubectl
 
 # nice ls colors
 source "/home/thlr/.local/share/lscolors.sh"
@@ -72,3 +72,8 @@ eval "$(direnv hook zsh)"
 autoload -Uz compinit
 zstyle ':completion:*' menu select
 fpath+=~/.zfunc
+
+#alias du='dua'
+#alias ls='exa'
+
+alias dc='sl'

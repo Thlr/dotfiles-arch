@@ -33,3 +33,4 @@ export RYAX_MAIN_DIR=/home/thlr/work/ryax/ryax-main
 export NIX_PATH=ryaxpkgs=$RYAX_MAIN_DIR/ryaxpkgs:ryaxuserpkgs=$RYAX_MAIN_DIR/user-pkgs:$NIX_PATH
 
 export BROWSER=firefox
+export EDITOR=nvim

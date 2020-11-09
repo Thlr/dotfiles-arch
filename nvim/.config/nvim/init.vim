@@ -153,6 +153,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go'
 Plug 'sebdah/vim-delve'
 
+" view classes
+Plug 'preservim/tagbar'
+
 call plug#end()
 
 """"""""""""""
@@ -276,3 +279,6 @@ nmap <leader>f  <Plug>(coc-format-selected)
 
 " CHADTree
 nnoremap <leader>v <cmd>CHADopen<cr>
+
+" tagbar
+nmap <C-n> :TagbarToggle<CR>
