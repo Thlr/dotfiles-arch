@@ -77,3 +77,5 @@ fpath+=~/.zfunc
 #alias ls='exa'
 
 alias dc='sl'
+
+set -o vi
