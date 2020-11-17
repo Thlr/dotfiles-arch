@@ -4,8 +4,6 @@ import datetime
 
 template = """# {date}
 
-## Daily checklist
-
 ## Todo
 
 ## Notes"""
