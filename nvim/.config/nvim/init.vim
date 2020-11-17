@@ -18,6 +18,35 @@ set wildmode=longest,list,full
 
 set splitbelow splitright
 
+" highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+\%#\@<!$/
+
+" hybrid line numbers
+set rnu nu
+
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+augroup END
+
+" Disable the bell for intellij
+set visualbell
+set noerrorbells
+
+" Color column at 80 char
+augroup collumnLimit
+    autocmd!
+    autocmd BufEnter,WinEnter,FileType python,tex
+                \ highlight CollumnLimit ctermbg=DarkGrey guibg=DarkGrey
+    let collumnLimit = 79 " feel free to customize
+    let pattern =
+                \ '\%<' . (collumnLimit+1) . 'v.\%>' . collumnLimit . 'v'
+    autocmd BufEnter,WinEnter,FileType python,tex
+                \ let w:m1=matchadd('CollumnLimit', pattern, -1)
+augroup END
+
 """"""""""""
 " BINDINGS "
 """"""""""""
@@ -50,53 +79,6 @@ map <leader>sen :setlocal spell! spelllang=en_us<CR>
 " Auto indent
 map <leader>i :setlocal autoindent<CR>
 map <leader>I :setlocal noautoindent<CR>
-
-""""""""""
-" VISUAL "
-""""""""""
-
-" highlight trailing whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+\%#\@<!$/
-set rnu nu " hybrid line numbers
-
-augroup numbertoggle
-    autocmd!
-    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
-augroup END
-
-" Disable the bell for intellij
-set visualbell
-set noerrorbells
-
-" Color column at 80 char
-augroup collumnLimit
-    autocmd!
-    autocmd BufEnter,WinEnter,FileType python,tex
-                \ highlight CollumnLimit ctermbg=DarkGrey guibg=DarkGrey
-    let collumnLimit = 79 " feel free to customize
-    let pattern =
-                \ '\%<' . (collumnLimit+1) . 'v.\%>' . collumnLimit . 'v'
-    autocmd BufEnter,WinEnter,FileType python,tex
-                \ let w:m1=matchadd('CollumnLimit', pattern, -1)
-augroup END
-
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (empty($TMUX))
-  if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
 
 """""""""""
 " PLUGINS "
@@ -164,15 +146,25 @@ call plug#end()
 """"""""""""""
 " Aesthetics "
 """"""""""""""
+
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+" transparent bg
+hi Normal guibg=NONE ctermbg=NONE
+hi NonText guibg=NONE ctermbg=NONE
+set background=dark
+
 color tender
-" hi Normal guibg=NONE ctermbg=NONE
-" set background=dark
 
 let g:airline_powerline_fonts = 1
 set laststatus=2
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
+
+""""""""""""""""""""""""
+" OTHER PLUGINS CONFIG "
+""""""""""""""""""""""""
 
 " Vim gutter (git integration)
 " Use fontawesome icons as signs
@@ -182,7 +174,7 @@ let g:gitgutter_sign_removed = ''
 let g:gitgutter_sign_removed_first_line = ''
 let g:gitgutter_sign_modified_removed = ''
 " let g:gitgutter_override_sign_column_highlight = 1
-set updatetime=150
+set updatetime=100
 " Jump between hunks
 nmap <Leader>gn <Plug>(GitGutterNextHunk)
 nmap <Leader>gp <Plug>(GitGutterPrevHunk)
@@ -215,9 +207,7 @@ let g:go_fmt_command = "goimports"
 " Automatically get signature/type info for object under cursor
 let g:go_auto_type_info = 1
 
-"""""""
-" COC "
-"""""""
+" coc nvim
 let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-python',
@@ -288,4 +278,5 @@ nmap <C-n> :TagbarToggle<CR>
 
 " vimwiki
 let g:vimwiki_list = [{'path': '~/sync/wiki', 'syntax': 'markdown', 'ext': '.md'}]
+" Diary template
 au BufNewFile ~/sync/wiki/diary/*.md :silent 0r !~/.local/bin/vimwiki-diary-template '%'
