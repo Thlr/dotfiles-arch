@@ -7,6 +7,8 @@ fi
 
 # ZSH_THEME=powerlevel10k/powerlevel10k
 
+# plugins=(git)
+
 source "${HOME}/.zgen/zgen.zsh"
 
 # if the init script doesn't exist
@@ -15,6 +17,8 @@ if ! zgen saved; then
   # specify plugins here
   zgen oh-my-zsh
   zgen load romkatv/powerlevel10k powerlevel10k
+  zgen load zsh-users/zsh-syntax-highlighting
+#  zgen load zsh-users/zsh-autosuggestions
 
   # generate the init script from plugins above
   zgen save
@@ -79,3 +83,4 @@ fpath+=~/.zfunc
 alias dc='sl'
 
 set -o vi
+bindkey "^R" history-incremental-search-backward

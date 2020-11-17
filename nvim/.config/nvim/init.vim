@@ -112,6 +112,9 @@ call plug#begin('~/.config/nvim/plugged') " for neovim
 
 Plug 'tpope/vim-sensible' " sane defaults
 
+" Personal wiki
+Plug 'vimwiki/vimwiki'
+
 " eye candy
 Plug 'vim-airline/vim-airline' " status bar (needs special fonts)
 Plug 'ryanoasis/vim-devicons' " various symbols (linux, rust, python, ...)
@@ -282,3 +285,6 @@ nnoremap <leader>v <cmd>CHADopen<cr>
 
 " tagbar
 nmap <C-n> :TagbarToggle<CR>
+
+" vimwiki
+let g:vimwiki_list = [{'path': '~/sync/wiki', 'syntax': 'markdown', 'ext': '.md'}]
