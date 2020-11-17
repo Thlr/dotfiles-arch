@@ -288,3 +288,4 @@ nmap <C-n> :TagbarToggle<CR>
 
 " vimwiki
 let g:vimwiki_list = [{'path': '~/sync/wiki', 'syntax': 'markdown', 'ext': '.md'}]
+au BufNewFile ~/sync/wiki/diary/*.md :silent 0r !~/.local/bin/vimwiki-diary-template '%'
