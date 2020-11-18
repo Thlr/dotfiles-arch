@@ -149,12 +149,19 @@ call plug#end()
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
+colorscheme tender
+
 " transparent bg
 hi Normal guibg=NONE ctermbg=NONE
-hi NonText guibg=NONE ctermbg=NONE
-set background=dark
+hi SignColumn guibg=NONE ctermbg=NONE
+hi TabLine guibg=NONE ctermbg=NONE
+hi TabLineFill guibg=NONE ctermbg=NONE
+"hi StatusLine guibg=NONE ctermbg=NONE
+"hi StatusLineNC guibg=NONE ctermbg=NONE
+"hi VertSplit guibg=NONE ctermbg=NONE
 
-color tender
+" Non transparent bg
+" set background=dark
 
 let g:airline_powerline_fonts = 1
 set laststatus=2
@@ -173,7 +180,7 @@ let g:gitgutter_sign_modified = ''
 let g:gitgutter_sign_removed = ''
 let g:gitgutter_sign_removed_first_line = ''
 let g:gitgutter_sign_modified_removed = ''
-" let g:gitgutter_override_sign_column_highlight = 1
+let g:gitgutter_override_sign_column_highlight = 1
 set updatetime=100
 " Jump between hunks
 nmap <Leader>gn <Plug>(GitGutterNextHunk)
