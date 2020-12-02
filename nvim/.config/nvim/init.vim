@@ -111,7 +111,10 @@ Plug 'liuchengxu/space-vim-dark'
 Plug 'jacoborus/tender.vim'
 
 " Quality of life plugins
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
+" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
+Plug 'preservim/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
 " Plug 'junegunn/fzf' " fuzzy files finding
 Plug 'kien/ctrlp.vim'
 
@@ -278,7 +281,20 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 " CHADTree
-nnoremap <leader>v <cmd>CHADopen<cr>
+" nnoremap <leader>v <cmd>CHADopen<cr>
+
+"" NerdTree
+nnoremap <leader>v <cmd> NERDTreeToggle<cr>
+" Open if no file is specified, if vim is opened on a directory or close vim
+" if nerdtree is the last tab open
+autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Nerdtree syntax hilighting
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
 
 " tagbar
 nmap <C-n> :TagbarToggle<CR>

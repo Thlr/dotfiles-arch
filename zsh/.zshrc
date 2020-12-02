@@ -52,17 +52,27 @@ alias vpnui='/opt/cisco/anyconnect/bin/vpnui'
 
 alias vim='nvim'
 
+# Enable poetry shell with autocompletion
+alias pshell='poetry shell && source <(ryax-adm --show-completion $(basename $SHELL))'
+
+#alias du='dua'
+#alias ls='exa'
+
+alias dc='sl'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+alias k=kubectl
+
+###########
+# OTHERS #
+###########
 
 # kubectl and minikube autocompletion
 source <(kubectl completion zsh)
 
 # nix related packages
 #source ~/.nix-profile/etc/profile.d/nix.sh
-
-# kubernetes aliases
-alias k=kubectl
 
 # nice ls colors
 source "/home/thlr/.local/share/lscolors.sh"
@@ -77,10 +87,6 @@ autoload -Uz compinit
 zstyle ':completion:*' menu select
 fpath+=~/.zfunc
 
-#alias du='dua'
-#alias ls='exa'
-
-alias dc='sl'
-
 set -o vi
+# This binding needs to be re-set with vi mode
 bindkey "^R" history-incremental-search-backward
