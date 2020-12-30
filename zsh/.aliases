@@ -21,6 +21,7 @@ alias vpn='/opt/cisco/anyconnect/bin/vpn'
 alias vpnui='/opt/cisco/anyconnect/bin/vpnui'
 
 alias vim='nvim'
+alias v='nvim'
 
 # Enable poetry shell with autocompletion
 alias pshell='poetry shell && source <(ryax-adm --show-completion $(basename $SHELL))'

@@ -10,7 +10,7 @@ template = f"""# {date}
 
 ## Tâches
 
-## Tâches de fond
+## A suivre
 
 ## Notes"""
 

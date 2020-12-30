@@ -8,6 +8,7 @@
 	br = branch
 	ci = commit
 	st = status
+	yolo = !git add -A && git commit -m \"$(curl --silent --fail https://whatthecommit.com/index.txt)\"
 [url "git@gitlab.com:"]
 	insteadOf = https://gitlab.com/
 [pull]
