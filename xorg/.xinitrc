@@ -44,5 +44,7 @@ xss-lock --transfer-sleep-lock -- sessionlock &
 blueman-applet &
 lorri daemon &
 megasync &
+udiskie --tray &
+dunst &
 
 exec dwm

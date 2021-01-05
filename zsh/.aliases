@@ -32,3 +32,5 @@ alias pshell='poetry shell && source <(ryax-adm --show-completion $(basename $SH
 alias dc='sl'
 
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+
+alias vconfig='nvim ~/.config/nvim/init.vim'
