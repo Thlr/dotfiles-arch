@@ -33,4 +33,6 @@ alias dc='sl'
 
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 
-alias vconfig='nvim ~/.config/nvim/init.vim'
+alias vcfg='nvim ~/.config/nvim/init.vim'
+
+alias python='ipython'
