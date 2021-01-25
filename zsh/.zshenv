@@ -36,3 +36,6 @@ export BROWSER=firefox
 export EDITOR=nvim
 
 export KUBECONFIG=$HOME/.kube/config
+
+# cargo binaries
+export PATH="$HOME/.cargo/bin":$PATH

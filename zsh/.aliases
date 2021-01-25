@@ -26,8 +26,9 @@ alias v='nvim'
 # Enable poetry shell with autocompletion
 alias pshell='poetry shell && source <(ryax-adm --show-completion $(basename $SHELL))'
 
-#alias du='dua'
-#alias ls='exa'
+alias du='dua'
+alias ls='exa'
+alias cat='bat'
 
 alias dc='sl'
 
