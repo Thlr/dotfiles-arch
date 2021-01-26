@@ -55,7 +55,7 @@ augroup END
 
 " fast buffer navigation
 nnoremap <F5> :buffers<CR>:buffer<Space>
-nmap <Tab> :tabn<CR>
+"nmap <Tab> :tabn<CR>
 
 " split navigations
 let g:BASH_Ctrl_j = 'off'
@@ -231,14 +231,15 @@ endif
 let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-python',
-    \ 'coc-jedi',
     \ 'coc-texlab',
     \ 'coc-markdownlint',
     \ 'coc-go',
     \ 'coc-highlight',
     \ ]
+"    \ 'coc-pyright',
 "    \ 'coc-snippets',
 "    \ 'coc-pairs',
+"    \ 'coc-jedi',
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
