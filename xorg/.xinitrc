@@ -31,6 +31,6 @@ lorri daemon &
 megasync &
 udiskie --tray &
 dunst &
-sh $HOME/.local/bin/remaps &
+sh -c "$HOME/.local/bin/remaps" &
 
 exec dwm
