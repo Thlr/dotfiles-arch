@@ -51,3 +51,4 @@ fpath+=~/.zfunc
 set -o vi
 # This binding needs to be re-set with vi mode
 bindkey "^R" history-incremental-search-backward
+

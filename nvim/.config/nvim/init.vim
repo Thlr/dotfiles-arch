@@ -82,6 +82,11 @@ map <leader>sen :setlocal spell! spelllang=en_us<CR>
 map <leader>i :setlocal autoindent<CR>
 map <leader>I :setlocal noautoindent<CR>
 
+" tab navigation
+
+nnoremap tj  :tabnext<CR>
+nnoremap tk  :tabprev<CR>
+
 """""""""""
 " PLUGINS "
 """""""""""
@@ -230,7 +235,7 @@ else
 endif
 let g:coc_global_extensions = [
     \ 'coc-json',
-    \ 'coc-python',
+    \ 'coc-pyright',
     \ 'coc-texlab',
     \ 'coc-markdownlint',
     \ 'coc-go',
