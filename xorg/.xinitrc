@@ -15,6 +15,14 @@ if [ -f $sysmodmap ]; then
     xmodmap $sysmodmap
 fi
 
-while true; do
-    dwm 2> ~/.dwm.log
-done
+feh --bg-scale $HOME/dotfiles/wallpapers/jrogers_11.webp &
+picom -b &
+xss-lock --transfer-sleep-lock -- sessionlock &
+blueman-applet &
+lorri daemon &
+megasync &
+udiskie --tray &
+dunst &
+sh -c "$HOME/.local/bin/remaps" &
+
+dwm 2> ~/.dwm.log
