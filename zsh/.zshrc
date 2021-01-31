@@ -24,7 +24,7 @@ if ! zgen saved; then
   zgen save
 fi
 
-[ -f ~/.aliases ] && source ~/.aliases
+[ -f ~/.aliasrc ] && source ~/.aliasrc
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -44,6 +44,7 @@ source "/home/thlr/.local/share/lscolors.sh"
 # lorri shell hook
 eval "$(direnv hook zsh)"
 
+# created by poetry for autocompletion
 autoload -Uz compinit
 zstyle ':completion:*' menu select
 fpath+=~/.zfunc
@@ -51,4 +52,3 @@ fpath+=~/.zfunc
 set -o vi
 # This binding needs to be re-set with vi mode
 bindkey "^R" history-incremental-search-backward
-

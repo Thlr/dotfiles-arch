@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-apps="dunst git kitty nix nvim p10k ranger rofi zathura zsh tmux xorg picom scripts"
+apps="dunst git kitty nix nvim p10k ranger rofi zathura zsh tmux x11 picom scripts shell"
 
 OPTS="--no-folding --verbose=1"
 
