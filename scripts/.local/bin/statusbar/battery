@@ -4,10 +4,7 @@
 # to charge status (🔌 for plugged up, 🔋 for discharging on battery, etc.).
 
 case $BLOCK_BUTTON in
-	3) notify-send "Scroll to change adjust xbacklight." ;;
-	4) xbacklight -inc 10 ;;
-	5) xbacklight -dec 10 ;;
-	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+	2) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
 # acpi alternative

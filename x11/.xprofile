@@ -6,8 +6,4 @@ xss-lock --transfer-sleep-lock -- sessionlock &
 lorri daemon &
 dunst &
 sh -c "$HOME/.local/bin/remaps" &
-
-#systray
-udiskie --tray &
-megasync &
-blueman-applet &
+dwmblocks &
