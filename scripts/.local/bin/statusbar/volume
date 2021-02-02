@@ -1,13 +1,17 @@
 #!/bin/sh
 
-# Prints the current volume or 🔇 if muted.
+#case $BLOCK_BUTTON in
+#	1) setsid pavucontrol ;;
+#	2) pamixer -t ;;
+#	3) notify-send "volume" ;;
+#	4) pamixer -i 1 ;;
+#	5) pamixer -d 1 ;;
+#	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+#esac
 
-case $BLOCK_BUTTON in
-	1) setsid -f "$TERMINAL" -e pulsemixer ;;
-	2) pamixer -t ;;
-	4) pamixer --allow-boost -i 1 ;;
-	5) pamixer --allow-boost -d 1 ;;
+case $BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+	1) notify-send "button $BUTTON" ;;
 esac
 
 [ $(pamixer --get-mute) = true ] && echo 婢 && exit

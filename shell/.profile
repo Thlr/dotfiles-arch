@@ -34,6 +34,7 @@ export NIX_PATH=ryaxpkgs=$RYAX_MAIN_DIR/ryaxpkgs:ryaxuserpkgs=$RYAX_MAIN_DIR/use
 
 export BROWSER=firefox
 export EDITOR=nvim
+export TERMINAL=st
 
 export KUBECONFIG=$HOME/.kube/config
 

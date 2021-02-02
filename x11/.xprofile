@@ -1,9 +1,0 @@
-#!/bin/sh
-
-feh --bg-scale $HOME/dotfiles/wallpapers/jrogers_11.webp &
-picom -b &
-xss-lock --transfer-sleep-lock -- sessionlock &
-lorri daemon &
-dunst &
-sh -c "$HOME/.local/bin/remaps" &
-dwmblocks &

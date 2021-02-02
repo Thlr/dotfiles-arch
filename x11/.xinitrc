@@ -2,8 +2,14 @@
 
 # see /etc/lightdm/Xsession for what is sourced at startup
 
-# Systray. These are launched here because if they load up before dwm (which is
-# the case in .xprofile, some won't appear in the systreay)
+feh --bg-scale $HOME/dotfiles/wallpapers/jrogers_11.webp &
+picom -b &
+xss-lock --transfer-sleep-lock -- sessionlock &
+lorri daemon &
+dunst &
+sh -c "$HOME/.local/bin/remaps" &
+dwmblocks &
+
 udiskie --tray &
 megasync &
 blueman-applet &
