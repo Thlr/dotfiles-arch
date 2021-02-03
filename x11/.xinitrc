@@ -14,4 +14,6 @@ udiskie --tray &
 megasync &
 blueman-applet &
 
-exec dwm 2> ~/.dwm.log
+while true; do
+  dwm 2> ~/.dwm.log
+done
