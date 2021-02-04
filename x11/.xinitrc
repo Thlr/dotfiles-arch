@@ -3,7 +3,7 @@
 # see /etc/lightdm/Xsession for what is sourced at startup
 
 feh --bg-scale $HOME/dotfiles/wallpapers/jrogers_11.webp &
-picom -b --experimental-backends --blur-method dual_kawase --backend glx &
+picom -b --experimental-backends --blur-method dual_kawase --backend glx --bur-strength 8 &
 xss-lock --transfer-sleep-lock -- sessionlock &
 lorri daemon &
 dunst &
