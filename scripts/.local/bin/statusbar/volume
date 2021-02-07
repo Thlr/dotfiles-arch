@@ -1,31 +1,26 @@
 #!/bin/sh
 
-#case $BLOCK_BUTTON in
-#	1) setsid pavucontrol ;;
-#	2) pamixer -t ;;
-#	3) notify-send "volume" ;;
-#	4) pamixer -i 1 ;;
-#	5) pamixer -d 1 ;;
-#	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
-#esac
-
 case $BUTTON in
+	1) setsid pavucontrol ;;
+	3) pamixer -t ;;
+	4) pamixer -i 1 ;;
+	5) pamixer -d 1 ;;
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
-	1) notify-send "button $BUTTON" ;;
+	*) ;;
 esac
 
-[ $(pamixer --get-mute) = true ] && echo 婢 && exit
+curr_source=$(pactl info | grep "Default Source" | cut -f3 -d" ")
+mic_is_muted=$(pactl list sources | grep -A 10 $curr_source | grep "Mute" | cut -f2 -d" ")
+mic_icon=""
+[ "$mic_is_muted" == "yes" ] && mic_icon="  "
 
 vol="$(pamixer --get-volume)"
-
-if [ "$vol" -gt "70" ]; then
-	icon=""
-elif [ "$vol" -lt "30" ]; then
+if [ $(pamixer --get-mute) = true -o "$vol" -eq 0 ]; then
+	icon="婢"
+elif [ "$vol" -lt "50" ]; then
 	icon=""
-elif [ "$vol" -eq "0" ]; then
-	icon=""
 else
 	icon="墳"
 fi
 
-echo "$icon $vol%"
+echo $mic_icon $icon $vol%

@@ -1,15 +1,21 @@
 #!/bin/sh
 
-# Show wifi 📶 and percent strength or 📡 if none.
-# Show 🌐 if connected to ethernet or ❎ if none.
-
 case $BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
-	down) wifiicon="睊 " ;;
-	up) wifiicon="$(awk '/^\s*w/ { print "直", int($3 * 100 / 70) "% " }' /proc/net/wireless)" ;;
-esac
+wifi_status=$(cat /sys/class/net/w*/operstate 2>/dev/null)
+wired_status=$(cat /sys/class/net/e*/operstate 2>/dev/null)
 
-printf "%s%s\n" "$wifiicon" "$(sed "s/down//;s/up//" /sys/class/net/e*/operstate 2>/dev/null)"
+internet_status=""
+if [ $wired_status == "up" ]; then
+	internet_status=""
+else
+	if [ $wifi_status == "up" ]; then
+		internet_status="$(awk '/^\s*w/ { print "直", int($3 * 100 / 70) "% " }' /proc/net/wireless)"
+	else
+		internet_status="睊"
+	fi
+fi
+
+echo $internet_status
