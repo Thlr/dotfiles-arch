@@ -10,10 +10,13 @@ dunst &
 sh -c "$HOME/.local/bin/remaps" &
 dwmblocks &
 
+(
+# Wait for dwm to start before launching the applets
+sleep 2 &
 udiskie --tray &
 megasync &
 blueman-applet &
+nm-applet &
+) &
 
-while true; do
-  dwm 2> ~/.dwm.log
-done
+exec dwm
