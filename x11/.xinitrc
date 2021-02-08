@@ -16,7 +16,7 @@ sleep 2 &
 udiskie --tray &
 megasync &
 blueman-applet &
-nm-applet &
+#nm-applet &
 ) &
 
 exec dwm

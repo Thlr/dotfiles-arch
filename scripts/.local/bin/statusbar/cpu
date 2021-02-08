@@ -1,12 +1,12 @@
 #!/bin/sh
 
 case $BUTTON in
-	1) $TERMINAL -n "bashtop" bashtop ;;
+	1) $TERMINAL -n bashtop -g 80x24 bashtop ;;
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 	*) ;;
 esac
 
-cpu_load="$(top -b -n2 | grep "Cpu(s)" | awk '{print $2+$4}' | tail -n1)"
+cpu_load="$(top -b -n2 | grep "Cpu(s)" | awk '{print int($2+$4)}' | tail -n1)"
 cpu_temp="$(sensors | grep Core | awk '{ print $3 }' | tr -d '+°C' | awk '{ total += $1; count ++ } END { print int(total/count) }')"
 
 CRIT_TEMP="82" # Given by the sensors command

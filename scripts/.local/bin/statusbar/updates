@@ -2,6 +2,7 @@
 
 case $BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+	*) ;;
 esac
 
-date "+%a, %b %d %I:%M%p"
+echo  "$( yay -Qu | wc -l)"
