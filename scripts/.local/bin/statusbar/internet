@@ -2,6 +2,7 @@
 
 case $BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+	*) ;;
 esac
 
 wifi_status=$(cat /sys/class/net/w*/operstate 2>/dev/null)

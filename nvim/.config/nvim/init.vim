@@ -159,7 +159,7 @@ call plug#end()
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-colorscheme tender
+colorscheme onedark
 
 " transparent bg
 hi Normal guibg=NONE ctermbg=NONE
