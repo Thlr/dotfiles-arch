@@ -2,7 +2,7 @@
 
 case $BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
-	*) ;;
 esac
 
-echo  "$( yay -Qu | wc -l)"
+paru -Sy
+echo  "$( paru -Qu | wc -l)"

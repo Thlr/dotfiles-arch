@@ -24,16 +24,20 @@ alias vim='nvim'
 alias v='nvim'
 
 # Enable poetry shell with autocompletion
-alias pshell='poetry shell && source <(ryax-adm --show-completion $(basename $SHELL))'
+alias pshell='poetry shell'
 
 alias du='dua'
 alias ls='exa'
 alias cat='bat'
 
+# I like to annoy myself
 alias dc='sl'
+alias gti='sl'
 
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 
 alias vcfg='nvim ~/.config/nvim/init.vim'
 
 alias python='ipython'
+
+alias g='git'
