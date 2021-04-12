@@ -10,13 +10,15 @@ dunst &
 sh -c "$HOME/.local/bin/remaps" &
 dwmblocks &
 
+synclient PalmDetect=1
+
 (
 # Wait for dwm to start before launching the applets
 sleep 2 &
 udiskie --tray &
 megasync &
 blueman-applet &
-#nm-applet &
+nm-applet &
 ) &
 
 exec dwm

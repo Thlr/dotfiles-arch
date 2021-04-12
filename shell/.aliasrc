@@ -30,9 +30,10 @@ alias du='dua'
 alias ls='exa'
 alias cat='bat'
 
-# I like to annoy myself
+# Make yourself regret mistakes
 alias dc='sl'
 alias gti='sl'
+alias gigt='sl'
 
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 
