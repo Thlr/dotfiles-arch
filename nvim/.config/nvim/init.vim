@@ -240,8 +240,8 @@ let g:coc_global_extensions = [
     \ 'coc-markdownlint',
     \ 'coc-go',
     \ 'coc-highlight',
+    \ 'coc-yaml',
     \ ]
-"    \ 'coc-pyright',
 "    \ 'coc-snippets',
 "    \ 'coc-pairs',
 "    \ 'coc-jedi',
