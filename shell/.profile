@@ -25,3 +25,5 @@ export TERMINAL=st
 
 # cargo binaries
 export PATH="$HOME/.cargo/bin":$PATH
+
+export PATH="$HOME/.poetry/bin:$PATH"

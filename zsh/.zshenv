@@ -14,3 +14,7 @@ if [ -e /home/thlr/.nix-profile/etc/profile.d/nix.sh ]; then . /home/thlr/.nix-p
 export RYAX_MAIN_DIR=$HOME/work/ryax/ryax-main
 
 export NIX_PATH="ryaxpkgs=$HOME/work/ryax/ryax-main/ryaxpkgs/:ryaxuserpkgs=$HOME/work/ryax/ryax-main/ryaxuserpkgs:$NIX_PATH"
+
+export PATH="/home/thlr/.pyenv/bin:$PATH"
+
+export PATH="$HOME/.poetry/bin:$PATH"

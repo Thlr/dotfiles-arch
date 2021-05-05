@@ -39,6 +39,6 @@ alias gigt='sl'
 
 alias vcfg='nvim ~/.config/nvim/init.vim'
 
-alias python='ipython'
+#alias python='ipython'
 
 alias g='git'
