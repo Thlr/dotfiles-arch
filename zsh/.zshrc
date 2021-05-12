@@ -32,9 +32,6 @@ fi
 # kubectl and minikube autocompletion
 source <(kubectl completion zsh)
 
-# nix related packages
-#source ~/.nix-profile/etc/profile.d/nix.sh
-
 # nice ls colors
 source "/home/thlr/.local/share/lscolors.sh"
 

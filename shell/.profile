@@ -17,13 +17,10 @@ export PATH="/var/lib/snapd/snap/bin/":$PATH
 export PATH="$HOME/.local/bin/":$PATH
 export PATH="$HOME/.local/bin/statusbar":$PATH
 
-export NIX_PATH=ryaxpkgs=$RYAX_MAIN_DIR/ryaxpkgs:ryaxuserpkgs=$RYAX_MAIN_DIR/user-pkgs:$NIX_PATH
-
 export BROWSER=firefox
 export EDITOR=nvim
 export TERMINAL=st
 
 # cargo binaries
 export PATH="$HOME/.cargo/bin":$PATH
-
-export PATH="$HOME/.poetry/bin:$PATH"
+if [ -e /home/thlr/.nix-profile/etc/profile.d/nix.sh ]; then . /home/thlr/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
