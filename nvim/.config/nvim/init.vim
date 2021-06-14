@@ -121,6 +121,7 @@ Plug 'jacoborus/tender.vim'
 " Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Plug 'junegunn/fzf' " fuzzy files finding
 Plug 'kien/ctrlp.vim'
