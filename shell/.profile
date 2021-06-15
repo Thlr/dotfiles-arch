@@ -24,3 +24,7 @@ export TERMINAL=st
 # cargo binaries
 export PATH="$HOME/.cargo/bin":$PATH
 if [ -e /home/thlr/.nix-profile/etc/profile.d/nix.sh ]; then . /home/thlr/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"

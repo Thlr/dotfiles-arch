@@ -101,9 +101,6 @@ call plug#begin('~/.config/nvim/plugged') " for neovim
 
 Plug 'tpope/vim-sensible' " sane defaults
 
-" Personal wiki
-Plug 'vimwiki/vimwiki'
-
 " eye candy
 Plug 'vim-airline/vim-airline' " status bar (needs special fonts)
 Plug 'ryanoasis/vim-devicons' " various symbols (linux, rust, python, ...)
@@ -354,8 +351,3 @@ let g:NERDTreePatternMatchHighlightFullName = 1
 
 " tagbar
 nmap <C-n> :TagbarToggle<CR>
-
-" vimwiki
-let g:vimwiki_list = [{'path': '~/sync/wiki', 'syntax': 'markdown', 'ext': '.md'}]
-" Diary template
-au BufNewFile ~/sync/wiki/diary/*.md :silent 0r !~/.local/bin/vimwiki-diary-template '%'

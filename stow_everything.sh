@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-apps="dunst git nix nvim p10k rofi zathura zsh x11 scripts shell fonts"
+apps="dunst git nix nvim p10k rofi zathura zsh x11 scripts shell fonts jrnl"
 
 OPTS="--no-folding --verbose=1"
 
