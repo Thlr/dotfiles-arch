@@ -1,8 +1,8 @@
 colors:
   body: none
-  date: none
-  tags: none
-  title: none
+  date: BLUE
+  tags: YELLOW
+  title: GREEN
 default_hour: 9
 default_minute: 0
 editor: nvim
