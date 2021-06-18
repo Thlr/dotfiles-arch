@@ -2,7 +2,7 @@
 
 # see /etc/lightdm/Xsession for what is sourced at startup
 
-feh --bg-fill $HOME/dotfiles/wallpapers/body-of-water.jpg &
+feh --bg-fill $HOME/dotfiles/wallpapers/wood-light-road-dawn.jpg &
 picom -b --experimental-backends --blur-method dual_kawase --backend glx --blur-strength 3 &
 xss-lock --transfer-sleep-lock -- sessionlock &
 lorri daemon &
