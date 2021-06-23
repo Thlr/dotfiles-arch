@@ -13,3 +13,5 @@
 	insteadOf = https://gitlab.com/
 [pull]
 	rebase = false
+[push]
+	default = current
