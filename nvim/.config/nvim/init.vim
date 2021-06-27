@@ -102,9 +102,10 @@ call plug#begin('~/.config/nvim/plugged') " for neovim
 Plug 'tpope/vim-sensible' " sane defaults
 
 " eye candy
-Plug 'vim-airline/vim-airline' " status bar (needs special fonts)
+Plug 'itchyny/lightline.vim'
+" Plug 'vim-airline/vim-airline' " status bar (needs special fonts)
 Plug 'ryanoasis/vim-devicons' " various symbols (linux, rust, python, ...)
-Plug 'sheerun/vim-polyglot' " better language support
+Plug 'sheerun/vim-polyglot' " better language support (syntax and identation)
 
 " themes
 Plug 'morhetz/gruvbox' " very nice and soft color theme
@@ -115,12 +116,10 @@ Plug 'liuchengxu/space-vim-dark'
 Plug 'jacoborus/tender.vim'
 
 " Quality of life plugins
-" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" Plug 'junegunn/fzf' " fuzzy files finding
 Plug 'kien/ctrlp.vim'
 
 " LaTeX editing
@@ -128,9 +127,7 @@ Plug 'vim-latex/vim-latex'
 Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'} " Live preview of LaTeX PDF output
 
 " autocompletion and snippets
-" Plug 'zxqfl/tabnine-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'ycm-core/YouCompleteMe'
 
 " R editing
 Plug 'jalvesaq/Nvim-R'
@@ -144,7 +141,6 @@ Plug 'tpope/vim-fugitive'
 
 " Go programming
 Plug 'fatih/vim-go'
-Plug 'sebdah/vim-delve'
 
 " view classes
 Plug 'preservim/tagbar'
@@ -155,31 +151,18 @@ call plug#end()
 " Aesthetics "
 """"""""""""""
 
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-colorscheme onedark
-
-" transparent bg
-hi Normal guibg=NONE ctermbg=NONE
-hi SignColumn guibg=NONE ctermbg=NONE
-hi TabLine guibg=NONE ctermbg=NONE
-hi TabLineFill guibg=NONE ctermbg=NONE
-"hi StatusLine guibg=NONE ctermbg=NONE
-"hi StatusLineNC guibg=NONE ctermbg=NONE
-"hi VertSplit guibg=NONE ctermbg=NONE
-
-" Non transparent bg
-" set background=dark
-
-let g:airline_powerline_fonts = 1
-set laststatus=2
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
 endif
 
-""""""""""""""""""""""""
-" OTHER PLUGINS CONFIG "
-""""""""""""""""""""""""
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+colorscheme tender
 
 " Vim gutter (git integration)
 " Use fontawesome icons as signs
@@ -188,7 +171,23 @@ let g:gitgutter_sign_modified = ''
 let g:gitgutter_sign_removed = ''
 let g:gitgutter_sign_removed_first_line = ''
 let g:gitgutter_sign_modified_removed = ''
-let g:gitgutter_override_sign_column_highlight = 1
+"let g:gitgutter_override_sign_column_highlight = 1
+
+let g:gitgutter_hilight_lines = 0
+
+" transparent bg
+hi Normal guibg=NONE ctermbg=NONE
+hi SignColumn guibg=NONE ctermbg=NONE
+hi TabLine guibg=NONE ctermbg=NONE
+hi TabLineFill guibg=NONE ctermbg=NONE
+
+" Non transparent bg
+" set background=dark
+
+""""""""""""""""""""""""
+" OTHER PLUGINS CONFIG "
+""""""""""""""""""""""""
+
 " Jump between hunks
 nmap <Leader>gn <Plug>(GitGutterNextHunk)
 nmap <Leader>gp <Plug>(GitGutterPrevHunk)
@@ -214,23 +213,31 @@ vmap ; <Plug>RDSendSelection
 vmap ;e <Plug>RESendSelection
 
 " Go setup
-" vim-delve
-nmap <Leader>b <Plug>(DlvToggleBreakPoint)
 " Run goimports along gofmt on each save
 let g:go_fmt_command = "goimports"
 " Automatically get signature/type info for object under cursor
 let g:go_auto_type_info = 1
 
-" coc nvim
+"" NerdTree
+nnoremap <leader>v <cmd> NERDTreeToggle<cr>
+" Open if no file is specified, if vim is opened on a directory or close vim
+" if nerdtree is the last tab open
+autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Nerdtree syntax hilighting
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
 
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+" tagbar
+nmap <C-n> :TagbarToggle<CR>
+
+""""""""""""
+" COC NVIM "
+""""""""""""
+
 let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-pyright',
@@ -242,7 +249,6 @@ let g:coc_global_extensions = [
     \ ]
 "    \ 'coc-snippets',
 "    \ 'coc-pairs',
-"    \ 'coc-jedi',
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -327,27 +333,3 @@ command! -nargs=? Fold :call     CocActionAsync('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
-
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-" CHADTree
-" nnoremap <leader>v <cmd>CHADopen<cr>
-
-"" NerdTree
-nnoremap <leader>v <cmd> NERDTreeToggle<cr>
-" Open if no file is specified, if vim is opened on a directory or close vim
-" if nerdtree is the last tab open
-autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" Nerdtree syntax hilighting
-let g:NERDTreeFileExtensionHighlightFullName = 1
-let g:NERDTreeExactMatchHighlightFullName = 1
-let g:NERDTreePatternMatchHighlightFullName = 1
-
-" tagbar
-nmap <C-n> :TagbarToggle<CR>
