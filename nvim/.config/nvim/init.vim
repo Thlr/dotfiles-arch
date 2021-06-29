@@ -83,7 +83,6 @@ map <leader>i :setlocal autoindent<CR>
 map <leader>I :setlocal noautoindent<CR>
 
 " tab navigation
-
 nnoremap tj  :tabnext<CR>
 nnoremap tk  :tabprev<CR>
 
@@ -103,7 +102,6 @@ Plug 'tpope/vim-sensible' " sane defaults
 
 " eye candy
 Plug 'itchyny/lightline.vim'
-" Plug 'vim-airline/vim-airline' " status bar (needs special fonts)
 Plug 'ryanoasis/vim-devicons' " various symbols (linux, rust, python, ...)
 Plug 'sheerun/vim-polyglot' " better language support (syntax and identation)
 
@@ -171,14 +169,12 @@ let g:gitgutter_sign_modified = ''
 let g:gitgutter_sign_removed = ''
 let g:gitgutter_sign_removed_first_line = ''
 let g:gitgutter_sign_modified_removed = ''
-"let g:gitgutter_override_sign_column_highlight = 1
 
 let g:gitgutter_hilight_lines = 0
 
 " transparent bg
 hi Normal guibg=NONE ctermbg=NONE
 hi SignColumn guibg=NONE ctermbg=NONE
-hi TabLine guibg=NONE ctermbg=NONE
 hi TabLineFill guibg=NONE ctermbg=NONE
 
 " Non transparent bg
