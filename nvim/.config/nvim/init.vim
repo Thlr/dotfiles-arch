@@ -3,6 +3,8 @@ let mapleader=" "
 let maplocalleader=","
 set clipboard+=unnamedplus
 set updatetime=100
+set timeoutlen=500
+set showcmd
 
 set nocompatible
 
@@ -53,23 +55,6 @@ augroup END
 " BINDINGS "
 """"""""""""
 
-" fast buffer navigation
-nnoremap <F5> :buffers<CR>:buffer<Space>
-"nmap <Tab> :tabn<CR>
-
-" split navigations
-let g:BASH_Ctrl_j = 'off'
-let g:C_Ctrl_j = 'off'
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
-
 " Auto comment
 map <leader>c :setlocal formatoptions-=cro<CR>
 map <leader>C :setlocal formatoptions=cro<CR>
@@ -83,8 +68,14 @@ map <leader>i :setlocal autoindent<CR>
 map <leader>I :setlocal noautoindent<CR>
 
 " tab navigation
-nnoremap tj  :tabnext<CR>
-nnoremap tk  :tabprev<CR>
+map <leader>J :tabnext<CR>
+map <leader>K :tabprev<CR>
+map <leader>t :tabs<CR>:tab<Space>
+
+" buffer navigation
+map <leader>j :bnext<CR>
+map <leader>k :bprev<CR>
+map <leader>b :buffers<CR>:buffer<Space>
 
 """""""""""
 " PLUGINS "
@@ -202,11 +193,11 @@ let g:livepreview_engine = 'pdflatex' . '-shell-escape'
 
 " Nvim-R
 " remapping the basic :: send line
-nmap ; <Plug>RDSendLine
+nmap <leader>; <Plug>RDSendLine
 " remapping selection :: send multiple lines
-vmap ; <Plug>RDSendSelection
+vmap <leader>; <Plug>RDSendSelection
 " remapping selection :: send multiple lines + echo lines
-vmap ;e <Plug>RESendSelection
+vmap <leader>;e <Plug>RESendSelection
 
 " Go setup
 " Run goimports along gofmt on each save
@@ -228,7 +219,7 @@ let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
 
 " tagbar
-nmap <C-n> :TagbarToggle<CR>
+nmap <leader>n :TagbarToggle<CR>
 
 """"""""""""
 " COC NVIM "
@@ -242,8 +233,8 @@ let g:coc_global_extensions = [
     \ 'coc-go',
     \ 'coc-highlight',
     \ 'coc-yaml',
+    \ 'coc-snippets',
     \ ]
-"    \ 'coc-snippets',
 "    \ 'coc-pairs',
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -261,16 +252,20 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-@> coc#refresh()
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" Use [g and ]g to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" Navigate diagnostics
+nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+nmap <silent> g] <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
